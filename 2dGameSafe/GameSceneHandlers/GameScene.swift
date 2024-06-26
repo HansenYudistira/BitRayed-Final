@@ -47,7 +47,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var contactManager: ContactManager!
     var viewControllerPresenter: ViewControllerPresenter!
     
-    let collisionNames = ["bed", "drawer", "tv", "chest", "wardrobe", "file_cabinet", "safe", "pic_frame", "large_table", "left_chair_1", "left_chair_2", "right_chair_1", "right_chair_2", "stove", "kitchen_sink", "trash_bin", "sofa", "tv_table", "fridge", "flower"]
+    let collisionNames = ["bed", "drawer", "tv", "chest", "wardrobe", "file_cabinet", "safe", "pic_frame", "large_table", "left_chair_1", "left_chair_2", "right_chair_1", "right_chair_2", "stove", "kitchen_sink", "trash_bin", "sofa", "tv_table", "fridge", "flower", "door"]
     
     let defaults = UserDefaults.standard
     
