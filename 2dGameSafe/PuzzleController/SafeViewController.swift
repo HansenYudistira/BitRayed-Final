@@ -89,12 +89,12 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         handleNode.texture?.filteringMode = .nearest
         safeNode.addChild(handleNode)
         
-        let documentNode = SKSpriteNode(imageNamed: "document")
+        let documentNode = SKSpriteNode(imageNamed: "proofCheating")
         documentNode.size = CGSize(width: 250, height: 350)
         documentNode.position = CGPoint(x: width / 2, y: height / 2)
         documentNode.zPosition = -1
         documentNode.zRotation = .pi / 2
-        documentNode.name = "document"
+        documentNode.name = "proofCheating"
         documentNode.texture?.filteringMode = .nearest
         scene.addChild(documentNode)
         
@@ -149,7 +149,7 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         let location = gesture.location(in: sceneView)
         let sceneLocation = scene.convertPoint(fromView: location)
         
-        if let node = scene.atPoint(sceneLocation) as? SKSpriteNode, node.name == "document" {
+        if let node = scene.atPoint(sceneLocation) as? SKSpriteNode, node.name == "proofCheating" {
             if isTapped == false {
                 animateDocument(node)
                 isTapped = true

@@ -13,11 +13,11 @@ struct AllAxisView: View {
 
     var body: some View {
         ZStack {
-            Image("paper")
+            Image("PaintingHint")
                 .resizable()
                 .ignoresSafeArea()
             
-            Color.black
+            Color.clear
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .ignoresSafeArea()
                 .reverseMask {

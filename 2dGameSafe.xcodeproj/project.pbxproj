@@ -27,9 +27,7 @@
 		9A1E9C942C287C4A0079ED3A /* MainGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1E9C812C287C4A0079ED3A /* MainGameView.swift */; };
 		9A1E9C952C287C4A0079ED3A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1E9C832C287C4A0079ED3A /* GameScene.swift */; };
 		9A1E9C962C287C4A0079ED3A /* HoldableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1E9C7D2C287C4A0079ED3A /* HoldableButton.swift */; };
-		9A1E9C972C287C4A0079ED3A /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9A1E9C892C287C4A0079ED3A /* MainScene.sks */; };
 		9A1E9C992C287C4A0079ED3A /* MyTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9A1E9C882C287C4A0079ED3A /* MyTileSet.sks */; };
-		9AF3D8C32C2AE7A200BCD6F3 /* MainScene 3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9AF3D8C22C2AE7A200BCD6F3 /* MainScene 3.sks */; };
 		A72D47922C2BF1670086E0EB /* dogica.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A72D478D2C2BF1670086E0EB /* dogica.ttf */; };
 		A72D47932C2BF1670086E0EB /* dogicabold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A72D478E2C2BF1670086E0EB /* dogicabold.ttf */; };
 		A72D47942C2BF1670086E0EB /* dogicapixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A72D478F2C2BF1670086E0EB /* dogicapixel.ttf */; };
@@ -105,8 +103,6 @@
 		9A1E9C852C287C4A0079ED3A /* AddCollisionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollisionExtension.swift; sourceTree = "<group>"; };
 		9A1E9C862C287C4A0079ED3A /* TilePhysicsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilePhysicsExtension.swift; sourceTree = "<group>"; };
 		9A1E9C882C287C4A0079ED3A /* MyTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyTileSet.sks; sourceTree = "<group>"; };
-		9A1E9C892C287C4A0079ED3A /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
-		9AF3D8C22C2AE7A200BCD6F3 /* MainScene 3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "MainScene 3.sks"; sourceTree = "<group>"; };
 		A72D478D2C2BF1670086E0EB /* dogica.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogica.ttf; sourceTree = "<group>"; };
 		A72D478E2C2BF1670086E0EB /* dogicabold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogicabold.ttf; sourceTree = "<group>"; };
 		A72D478F2C2BF1670086E0EB /* dogicapixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogicapixel.ttf; sourceTree = "<group>"; };
@@ -288,8 +284,6 @@
 				A72D47DA2C2C1DC50086E0EB /* MainScene 2.sks */,
 				A72D47D92C2C1DC50086E0EB /* MyTileSet 1.sks */,
 				9A1E9C882C287C4A0079ED3A /* MyTileSet.sks */,
-				9A1E9C892C287C4A0079ED3A /* MainScene.sks */,
-				9AF3D8C22C2AE7A200BCD6F3 /* MainScene 3.sks */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -486,7 +480,6 @@
 				A72D47A62C2C04430086E0EB /* HusbandTalkingSFX.wav in Resources */,
 				A72D47DC2C2C1DC50086E0EB /* MainScene 2.sks in Resources */,
 				A72D47922C2BF1670086E0EB /* dogica.ttf in Resources */,
-				9AF3D8C32C2AE7A200BCD6F3 /* MainScene 3.sks in Resources */,
 				A72D47AC2C2C04430086E0EB /* FaceSlapSFX.wav in Resources */,
 				A72D47AA2C2C04430086E0EB /* NarrativeAmbienceSFX.wav in Resources */,
 				A7C9A4622C2183FB00F98BB9 /* PolyPlane.scn in Resources */,
@@ -496,7 +489,6 @@
 				A72D47942C2BF1670086E0EB /* dogicapixel.ttf in Resources */,
 				A72D47AE2C2C04430086E0EB /* RestaurantAmbienceSFX.wav in Resources */,
 				A7C9A4612C2183FB00F98BB9 /* Box.scn in Resources */,
-				9A1E9C972C287C4A0079ED3A /* MainScene.sks in Resources */,
 				9A1E9C992C287C4A0079ED3A /* MyTileSet.sks in Resources */,
 				A72D47952C2BF1670086E0EB /* dogicapixelbold.ttf in Resources */,
 				A72D47AB2C2C04430086E0EB /* WifeTalkingSFX.wav in Resources */,

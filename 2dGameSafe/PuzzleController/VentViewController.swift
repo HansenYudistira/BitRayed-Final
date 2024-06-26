@@ -181,7 +181,7 @@ public class VentViewController: UIViewController, SKPhysicsContactDelegate {
         
         if let progressBar = progressBars[node] {
             let progress = CGFloat(currentRotations) / 48.0
-            let path = UIBezierPath(arcCenter: .zero, radius: 50, startAngle: -CGFloat.pi / 2, endAngle: -CGFloat.pi / 2 + (2 * .pi * progress), clockwise: true)
+            let path = UIBezierPath(arcCenter: .zero, radius: 50, startAngle: CGFloat.pi / 2, endAngle: CGFloat.pi / 2 + (2 * .pi * progress), clockwise: true)
             progressBar.path = path.cgPath
             progressBar.strokeColor = progress >= 1.0 ? .clear : .green
         }
