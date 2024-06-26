@@ -34,6 +34,8 @@ extension GameScene {
         police.zPosition = 51
         police.name = "police"
         
+        police.texture?.filteringMode = .nearest
+        
         policeRightFrames = loadFrames(fromAtlas: "police_right", frameCount: 8)
         policeDownFrames = loadFrames(fromAtlas: "police_down", frameCount: 8)
         policeLeftFrames = loadFrames(fromAtlas: "police_left", frameCount: 8)
