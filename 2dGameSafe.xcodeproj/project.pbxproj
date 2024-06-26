@@ -90,6 +90,7 @@
 		A72D47902C2BF1670086E0EB /* dogicapixelbold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogicapixelbold.ttf; sourceTree = "<group>"; };
 		A72D47962C2BF17B0086E0EB /* ButtonContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonContent.swift; sourceTree = "<group>"; };
 		A72D47982C2BF18B0086E0EB /* InventoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
+		A72D479A2C2BF8560086E0EB /* -dGameSafe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-dGameSafe-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A7C9A4382C1B382D00F98BB9 /* 2dGameSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2dGameSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C9A43B2C1B382D00F98BB9 /* _dGameSafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _dGameSafeApp.swift; sourceTree = "<group>"; };
 		A7C9A43D2C1B382D00F98BB9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -262,6 +263,7 @@
 		A7C9A43A2C1B382D00F98BB9 /* 2dGameSafe */ = {
 			isa = PBXGroup;
 			children = (
+				A72D479A2C2BF8560086E0EB /* -dGameSafe-Info.plist */,
 				A72D47912C2BF1670086E0EB /* Font */,
 				034893DC2C292CCD005867CC /* Music */,
 				034893CE2C292C4A005867CC /* HintViews */,
@@ -567,6 +569,7 @@
 				DEVELOPMENT_TEAM = 4JD2N84N6P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-dGameSafe-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -595,6 +598,7 @@
 				DEVELOPMENT_TEAM = 4JD2N84N6P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-dGameSafe-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
