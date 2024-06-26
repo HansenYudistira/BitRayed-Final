@@ -200,6 +200,20 @@ public class VentViewController: UIViewController, SKPhysicsContactDelegate {
             print("nilai akhir \(numberOfBoltsAffectedByGravity)")
             if numberOfBoltsAffectedByGravity >= 4 {
                 makeVentAffectedByGravity()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+                    guard let self = self else { return }
+                    if let scene = self.scene {
+                        if let node = scene.childNode(withName: "knife") as? SKSpriteNode {
+                            animateKnife(node)
+                        }
+                    }
+                    defaults.set(true, forKey: "Puzzle6_done")
+                    isTapped = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        self.returnToGameViewController()
+                    }
+                    print("knife tapped")
+                }
             }
         }
     }

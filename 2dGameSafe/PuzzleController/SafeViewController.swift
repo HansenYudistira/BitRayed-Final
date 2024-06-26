@@ -90,10 +90,9 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         safeNode.addChild(handleNode)
         
         let documentNode = SKSpriteNode(imageNamed: "proofCheating")
-        documentNode.size = CGSize(width: 250, height: 350)
+        documentNode.size = CGSize(width: 350, height: 350)
         documentNode.position = CGPoint(x: width / 2, y: height / 2)
         documentNode.zPosition = -1
-        documentNode.zRotation = .pi / 2
         documentNode.name = "proofCheating"
         documentNode.texture?.filteringMode = .nearest
         scene.addChild(documentNode)
@@ -240,6 +239,20 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
                 print("Password correct!")
                 makeSafeOpen()
                 defaults.set(true, forKey: "Puzzle4_done")
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+                    guard let self = self else { return }
+                    if let scene = self.scene {
+                        if let node = scene.childNode(withName: "proofCheating") as? SKSpriteNode {
+                            self.animateDocument(node)
+                        }
+                    }
+                    self.isTapped = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        self.returnToGameViewController()
+                    }
+                }
+                
             } else {
                 print("Password incorrect!")
                 enteredPassword.removeAll()
@@ -252,7 +265,7 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         let yPosition = sceneView.frame.height - 200
         
         let rotateLeftButton = UIButton(type: .custom)
-        rotateLeftButton.setImage(UIImage(named: "arrow_left"), for: .normal)
+        rotateLeftButton.setImage(UIImage(named: "left"), for: .normal)
         rotateLeftButton.frame = CGRect(x: 20, y: yPosition, width: buttonSize.width, height: buttonSize.height)
         rotateLeftButton.contentHorizontalAlignment = .fill
         rotateLeftButton.contentVerticalAlignment = .fill
@@ -260,7 +273,7 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         view.addSubview(rotateLeftButton)
         
         let rotateRightButton = UIButton(type: .custom)
-        rotateRightButton.setImage(UIImage(named: "arrow_right"), for: .normal)
+        rotateRightButton.setImage(UIImage(named: "right"), for: .normal)
         rotateRightButton.frame = CGRect(x: scene.size.width - 170, y: yPosition, width: buttonSize.width, height: buttonSize.height)
         rotateRightButton.contentHorizontalAlignment = .fill
         rotateRightButton.contentVerticalAlignment = .fill

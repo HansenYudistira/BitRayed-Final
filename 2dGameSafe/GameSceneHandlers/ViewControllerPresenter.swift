@@ -65,7 +65,6 @@ class ViewControllerPresenter {
         let hostingController = UIHostingController(rootView: swiftUIView)
         hostingController.modalPresentationStyle = .fullScreen
         presentingViewController?.present(hostingController, animated: true, completion: nil)
-
     }
 }
 
