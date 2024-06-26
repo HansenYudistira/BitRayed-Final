@@ -12,6 +12,7 @@ struct StartView: View{
     
     @StateObject private var audioPlayer = AudioPlayer()
     @State var navigateToGame = false
+    @State var navigateToScene = false
     @State private var isLoading = false
     let defaults = UserDefaults.standard
 
@@ -37,7 +38,7 @@ struct StartView: View{
                         isLoading = true
                         isNewGame()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            navigateToGame = true
+                            navigateToScene = true
                             isLoading = false
                         }
                     }) {
@@ -83,8 +84,11 @@ struct StartView: View{
         .onAppear{
             audioPlayer.playSoundBackground(sound: "main_music", type: "wav")
         }
-        .navigationDestination(isPresented: $navigateToGame){
+        .navigationDestination(isPresented: $navigateToScene){
             SceneView()
+        }
+        .navigationDestination(isPresented: $navigateToGame){
+            MainGameView()
         }
         
     }

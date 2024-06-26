@@ -46,7 +46,7 @@ struct CombinationLockView: View {
                 Spacer()
                 Button {
                     print("left \(leftIndex!), mid \(midIndex!), right \(rightIndex!)")
-                    if(leftIndex == 2 && midIndex == 1 && rightIndex == 3 ){
+                    if(leftIndex == 3 && midIndex == 1 && rightIndex == 4 ){
                         
                         defaults.set(true, forKey: "Puzzle3_done")
                         print("Correct")

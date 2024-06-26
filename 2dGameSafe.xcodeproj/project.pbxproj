@@ -138,7 +138,7 @@
 		A72D47C02C2C054A0086E0EB /* HintDialogBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintDialogBoxView.swift; sourceTree = "<group>"; };
 		A72D47C12C2C054A0086E0EB /* HintTextBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintTextBoxView.swift; sourceTree = "<group>"; };
 		A72D47C22C2C054A0086E0EB /* InGameDialogBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InGameDialogBoxView.swift; sourceTree = "<group>"; };
-		A72D47C32C2C054A0086E0EB /* NarrativeSceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarrativeSceneView.swift; sourceTree = "<group>"; };
+		A72D47C32C2C054A0086E0EB /* NarrativeSceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = NarrativeSceneView.swift; sourceTree = "<group>"; };
 		A7C9A4382C1B382D00F98BB9 /* 2dGameSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2dGameSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C9A43B2C1B382D00F98BB9 /* _dGameSafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _dGameSafeApp.swift; sourceTree = "<group>"; };
 		A7C9A43D2C1B382D00F98BB9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };

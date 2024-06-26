@@ -28,6 +28,7 @@ class AudioPlayer: ObservableObject {
                 backgroundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
                 backgroundPlayer?.numberOfLoops = -1 // Loop indefinitely
                 backgroundPlayer?.play()
+                backgroundPlayer?.volume = 2
             } catch {
                 print("Could not find and play the sound file.")
             }

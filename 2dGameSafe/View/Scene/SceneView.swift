@@ -35,6 +35,7 @@ struct SceneView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden()
         .onAppear {
             if let backgroundMusic = Bundle.main.url(forResource: "Music1", withExtension: "wav") {
                 AudioPlayer.playSound(url: backgroundMusic, withID: "backgroundMusic", loop: true)
