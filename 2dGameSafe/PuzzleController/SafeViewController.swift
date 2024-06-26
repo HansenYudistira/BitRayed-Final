@@ -261,13 +261,26 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         rotateRightButton.addTarget(self, action: #selector(rotateLockRight), for: .touchUpInside)
         view.addSubview(rotateRightButton)
         
-        let submitButton = UIButton(type: .system)
-        submitButton.setTitle("Submit", for: .normal)
-        submitButton.setTitleColor(.white, for: .normal)
-        submitButton.backgroundColor = .orange
+        let submitButton = UIButton(type: .custom)
+        submitButton.setImage(UIImage(named: "button_template"), for: .normal)
         submitButton.frame = CGRect(x: scene.size.width / 2 - 75, y: yPosition, width: buttonSize.width, height: buttonSize.height)
+        submitButton.contentHorizontalAlignment = .fill
+        submitButton.contentVerticalAlignment = .fill
         submitButton.addTarget(self, action: #selector(submitCurrentNumber), for: .touchUpInside)
         view.addSubview(submitButton)
+        
+        let submitLabel = UILabel(frame: submitButton.bounds)
+        submitLabel.text = "Submit"
+        submitLabel.textAlignment = .center
+        submitLabel.textColor = .black
+        if let customFont = UIFont(name: "dogica", size: 20) {
+            submitLabel.font = customFont
+        } else {
+            submitLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        }
+
+        submitLabel.isUserInteractionEnabled = false
+        submitButton.addSubview(submitLabel)
     }
     
     @objc private func rotateLockLeft() {

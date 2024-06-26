@@ -15,7 +15,6 @@ struct StartView: View{
     @State private var isLoading = false
     let defaults = UserDefaults.standard
 
-    
     var body: some View {
         ZStack{
 //            RainfallView()
