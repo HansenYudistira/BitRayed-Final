@@ -22,7 +22,7 @@ struct FileCabinetView: View {
     var body: some View {
         ZStack{
             Image("level2_bg")
-                .interpolation(.none) 
+                .interpolation(.none)
                 .resizable()
                 .ignoresSafeArea()
             //            FolderRegular()
@@ -42,18 +42,23 @@ struct FileCabinetView: View {
                     Image(folders[index])
                         .interpolation(.none)
                         .resizable()
-                        .opacity(index == gyroManager.currentFolderIndex ? 1 : 0)
+                    //                        .opacity(index == gyroManager.currentFolderIndex ? 1 : 0)
+                        .offset(CGSize(width: 0, height: index == gyroManager.currentFolderIndex ? -180 : 0))
                         .onTapGesture {
-                            if index == 4 {
-                                
+                            if gyroManager.currentFolderIndex == 0 {
+                                print("File's found")
                                 defaults.set(true, forKey: "Puzzle2_done")
+                                defaults.synchronize()
+                            }else{
+                                print("Nothing in this file")
                             }
                         }
-                }
+                }.offset(y: 50)
                 
                 Image("Front Drawer")
                     .interpolation(.none)
                     .resizable()
+                    .allowsHitTesting(false)
                 
                 Button {
                     dismiss()

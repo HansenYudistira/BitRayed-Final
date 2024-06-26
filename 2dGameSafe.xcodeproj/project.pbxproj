@@ -32,6 +32,12 @@
 		9A1E9C972C287C4A0079ED3A /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9A1E9C892C287C4A0079ED3A /* MainScene.sks */; };
 		9A1E9C992C287C4A0079ED3A /* MyTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9A1E9C882C287C4A0079ED3A /* MyTileSet.sks */; };
 		9AF3D8C32C2AE7A200BCD6F3 /* MainScene 2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9AF3D8C22C2AE7A200BCD6F3 /* MainScene 2.sks */; };
+		A72D47922C2BF1670086E0EB /* dogica.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A72D478D2C2BF1670086E0EB /* dogica.ttf */; };
+		A72D47932C2BF1670086E0EB /* dogicabold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A72D478E2C2BF1670086E0EB /* dogicabold.ttf */; };
+		A72D47942C2BF1670086E0EB /* dogicapixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A72D478F2C2BF1670086E0EB /* dogicapixel.ttf */; };
+		A72D47952C2BF1670086E0EB /* dogicapixelbold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A72D47902C2BF1670086E0EB /* dogicapixelbold.ttf */; };
+		A72D47972C2BF17B0086E0EB /* ButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47962C2BF17B0086E0EB /* ButtonContent.swift */; };
+		A72D47992C2BF18B0086E0EB /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47982C2BF18B0086E0EB /* InventoryItem.swift */; };
 		A7C9A43C2C1B382D00F98BB9 /* _dGameSafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9A43B2C1B382D00F98BB9 /* _dGameSafeApp.swift */; };
 		A7C9A43E2C1B382D00F98BB9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9A43D2C1B382D00F98BB9 /* ContentView.swift */; };
 		A7C9A4402C1B382E00F98BB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C9A43F2C1B382E00F98BB9 /* Assets.xcassets */; };
@@ -78,6 +84,12 @@
 		9A1E9C882C287C4A0079ED3A /* MyTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyTileSet.sks; sourceTree = "<group>"; };
 		9A1E9C892C287C4A0079ED3A /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		9AF3D8C22C2AE7A200BCD6F3 /* MainScene 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "MainScene 2.sks"; sourceTree = "<group>"; };
+		A72D478D2C2BF1670086E0EB /* dogica.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogica.ttf; sourceTree = "<group>"; };
+		A72D478E2C2BF1670086E0EB /* dogicabold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogicabold.ttf; sourceTree = "<group>"; };
+		A72D478F2C2BF1670086E0EB /* dogicapixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogicapixel.ttf; sourceTree = "<group>"; };
+		A72D47902C2BF1670086E0EB /* dogicapixelbold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogicapixelbold.ttf; sourceTree = "<group>"; };
+		A72D47962C2BF17B0086E0EB /* ButtonContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonContent.swift; sourceTree = "<group>"; };
+		A72D47982C2BF18B0086E0EB /* InventoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 		A7C9A4382C1B382D00F98BB9 /* 2dGameSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2dGameSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C9A43B2C1B382D00F98BB9 /* _dGameSafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _dGameSafeApp.swift; sourceTree = "<group>"; };
 		A7C9A43D2C1B382D00F98BB9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -167,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				034893D62C292C9E005867CC /* GlitchText.swift */,
+				A72D47962C2BF17B0086E0EB /* ButtonContent.swift */,
 				034893D72C292C9E005867CC /* LoadingView.swift */,
 				9A1E9C7D2C287C4A0079ED3A /* HoldableButton.swift */,
 				A7C9A4B52C2970A200F98BB9 /* TapButton.swift */,
@@ -188,6 +201,7 @@
 		9A1E9C822C287C4A0079ED3A /* GameViews */ = {
 			isa = PBXGroup;
 			children = (
+				A72D47982C2BF18B0086E0EB /* InventoryItem.swift */,
 				9A1E9C812C287C4A0079ED3A /* MainGameView.swift */,
 			);
 			path = GameViews;
@@ -218,6 +232,17 @@
 			path = SpriteKit;
 			sourceTree = "<group>";
 		};
+		A72D47912C2BF1670086E0EB /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				A72D478D2C2BF1670086E0EB /* dogica.ttf */,
+				A72D478E2C2BF1670086E0EB /* dogicabold.ttf */,
+				A72D478F2C2BF1670086E0EB /* dogicapixel.ttf */,
+				A72D47902C2BF1670086E0EB /* dogicapixelbold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		A7C9A42F2C1B382C00F98BB9 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +262,7 @@
 		A7C9A43A2C1B382D00F98BB9 /* 2dGameSafe */ = {
 			isa = PBXGroup;
 			children = (
+				A72D47912C2BF1670086E0EB /* Font */,
 				034893DC2C292CCD005867CC /* Music */,
 				034893CE2C292C4A005867CC /* HintViews */,
 				9A1E9C7E2C287C4A0079ED3A /* Tool */,
@@ -347,14 +373,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C9A4BC2C2971AD00F98BB9 /* Rain.sks in Resources */,
+				A72D47922C2BF1670086E0EB /* dogica.ttf in Resources */,
 				9AF3D8C32C2AE7A200BCD6F3 /* MainScene 2.sks in Resources */,
 				A7C9A4622C2183FB00F98BB9 /* PolyPlane.scn in Resources */,
 				A7C9A4432C1B382E00F98BB9 /* Preview Assets.xcassets in Resources */,
 				034893DD2C292CCD005867CC /* main_music.wav in Resources */,
+				A72D47942C2BF1670086E0EB /* dogicapixel.ttf in Resources */,
 				A7C9A4612C2183FB00F98BB9 /* Box.scn in Resources */,
 				9A1E9C972C287C4A0079ED3A /* MainScene.sks in Resources */,
 				9A1E9C992C287C4A0079ED3A /* MyTileSet.sks in Resources */,
+				A72D47952C2BF1670086E0EB /* dogicapixelbold.ttf in Resources */,
 				9A1BFD5D2C2AB90400FA1E79 /* MyTileSet 1.sks in Resources */,
+				A72D47932C2BF1670086E0EB /* dogicabold.ttf in Resources */,
 				A7C9A4BB2C2971AD00F98BB9 /* Assets.xcassets in Resources */,
 				A7C9A4402C1B382E00F98BB9 /* Assets.xcassets in Resources */,
 			);
@@ -370,11 +400,13 @@
 				A7C9A4592C2183F400F98BB9 /* ShadowViewController.swift in Sources */,
 				A7C9A4522C1C0DB300F98BB9 /* GameViewController.swift in Sources */,
 				A7C9A43E2C1B382D00F98BB9 /* ContentView.swift in Sources */,
+				A72D47972C2BF17B0086E0EB /* ButtonContent.swift in Sources */,
 				A7C9A44C2C1B3D4100F98BB9 /* SafeViewController.swift in Sources */,
 				A7C9A4562C1C256B00F98BB9 /* VentViewController.swift in Sources */,
 				034893D52C292C85005867CC /* StartView.swift in Sources */,
 				034893D82C292C9E005867CC /* GlitchText.swift in Sources */,
 				034893D92C292C9E005867CC /* LoadingView.swift in Sources */,
+				A72D47992C2BF18B0086E0EB /* InventoryItem.swift in Sources */,
 				A7C9A43C2C1B382D00F98BB9 /* _dGameSafeApp.swift in Sources */,
 				A7C9A44E2C1B3D5500F98BB9 /* bitMasks.swift in Sources */,
 				9A1E9C8E2C287C4A0079ED3A /* AddCollisionExtension.swift in Sources */,

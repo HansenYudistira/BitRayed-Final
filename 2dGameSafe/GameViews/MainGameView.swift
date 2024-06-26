@@ -20,12 +20,7 @@ class GameViewModel: ObservableObject {
 
 struct MainGameView: View {
     
-//    var scene: SKScene = {
-//        let scene = GameScene(fileNamed: "MainScene.sks")!
-//        scene.scaleMode = .resizeFill
-//        return scene
-//    }()
-    
+    let defaults = UserDefaults.standard
     
     @State private var moveToLeft = false
     @State private var moveToRight = false
@@ -50,22 +45,22 @@ struct MainGameView: View {
                 }
                 
                 HStack {
-                    VStack {
+                    VStack (spacing: -45){
                         Spacer()
-                        HoldableButton(imageName: "arrowshape.up.circle.fill") {
+                        HoldableButton(imageName: "up") {
                             gameViewModel.gameScene?.moveUp = true
                         } onRelease: {
                             gameViewModel.gameScene?.moveUp = false
                         }
-                        HStack (spacing: 100){
+                        HStack (spacing: 0){
                             
-                            HoldableButton(imageName: "arrowshape.left.circle.fill") {
+                            HoldableButton(imageName: "left") {
                                 gameViewModel.gameScene?.moveToLeft = true
                             } onRelease: {
                                 gameViewModel.gameScene?.moveToLeft = false
                             }
                             
-                            HoldableButton(imageName: "arrowshape.right.circle.fill") {
+                            HoldableButton(imageName: "right") {
                                 gameViewModel.gameScene?.moveToRight = true
                             } onRelease: {
                                 gameViewModel.gameScene?.moveToRight = false
@@ -73,7 +68,7 @@ struct MainGameView: View {
                             
                         }
                         
-                        HoldableButton(imageName: "arrowshape.down.circle.fill") {
+                        HoldableButton(imageName: "down") {
                             gameViewModel.gameScene?.moveDown = true
                         } onRelease: {
                             gameViewModel.gameScene?.moveDown = false
@@ -84,24 +79,27 @@ struct MainGameView: View {
                     Spacer()
                     
                     VStack() {
-                        TapButton(imageName: "a.circle.fill") {
+                        TapButton(imageName: "action") {
                             gameViewModel.gameScene?.actionButton = true
                         }
                         
-                        TapButton(imageName: "b.circle.fill") {
+                        TapButton(imageName: "posses") {
                             gameViewModel.gameScene?.possesButton = true
                         }
                     }
-                    .offset(x: -100, y: 350)
+                    .offset(x: 0, y: 300)
                 }
                 .padding()
+                
+                InventoryItem()
             }
             .navigationBarBackButtonHidden()
             .ignoresSafeArea()
+        }.onAppear{
+            defaults.synchronize()
         }
     }
 }
-
 
 
 #Preview {

@@ -18,57 +18,60 @@ struct StartView: View{
     
     var body: some View {
         ZStack{
-            RainfallView()
+//            RainfallView()
+            RepeatingTile(tileImage: Image("start_tile")).ignoresSafeArea()
             
             VStack{
                 
                 Spacer()
                 
-                GlitchText()
+//                GlitchText()
+                Text("BITRAYED")
+                    .font(.custom("dogica", size: 69))
+                    .bold()
+                    .foregroundStyle(.white)
                 
                 Spacer()
                 
-                Button(action: {
-                    isLoading = true
-                    isNewGame()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        navigateToGame = true
-                        isLoading = false
+                Group {
+                    Button(action: {
+                        isLoading = true
+                        isNewGame()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            navigateToGame = true
+                            isLoading = false
+                        }
+                    }) {
+                        ButtonContent(label: "New Game")
                     }
-                }) {
-                    Text("New Game")
-                        .font(.title2)
-                        .foregroundStyle(.white)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 24).frame(width: 250))
-                }
-                Button(action: {
-                    defaults.set(false, forKey: "NewGame")
-                }) {
-                    Text("Continue")
-                        .font(.title2)
-                        .foregroundStyle(.white)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 24).frame(width: 250))
-                }
-                Button(action: {
                     
-                }) {
-                    Text("Credits")
-                        .font(.title2)
-                        .foregroundStyle(.white)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 24).frame(width: 250))
+                    Button(action: {
+                        isLoading = true
+                        defaults.set(false, forKey: "NewGame")
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            navigateToGame = true
+                            isLoading = false
+                        }
+                    }) {
+                        ButtonContent(label: "Continue")
+                    }
+                    
+                    Button(action: {
+                        
+                    }) {
+                        ButtonContent(label: "Credits")
+                    }
                 }
-                Button(action: {
-                    exit(0)
-                }) {
-                    Text("Exit")
-                        .font(.title2)
-                        .foregroundStyle(.white)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 24).frame(width: 250))
-                }
+
+//                Button(action: {
+//                    exit(0)
+//                }) {
+//                    Text("Exit")
+//                        .font(.title2)
+//                        .foregroundStyle(.white)
+//                        .padding()
+//                        .background(RoundedRectangle(cornerRadius: 24).frame(width: 250))
+//                }
                 
                 Spacer()
             }
@@ -98,6 +101,43 @@ struct StartView: View{
     }
 }
 
-//#Preview {
-//    StartView()
-//}
+#Preview {
+    StartView()
+}
+
+
+struct RepeatingTile: View {
+    let tileImage: Image
+
+    init(tileImage: Image) {
+        self.tileImage = tileImage
+    }
+
+    var body: some View {
+        GeometryReader { geometry in
+            tileImage
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 128, height: 128)
+                .offset(x: 0, y: 0)
+                .repeatTile(geometry: geometry)
+        }
+    }
+}
+
+extension View {
+    func repeatTile(geometry: GeometryProxy) -> some View {
+        self
+            .clipped()
+            .overlay(
+                GeometryReader { geo in
+                    ForEach(0..<20) { x in
+                        ForEach(0..<20) { y in
+                            self
+                                .offset(x: CGFloat(x) * 128, y: CGFloat(y) * 128)
+                        }
+                    }
+                }
+            )
+    }
+}

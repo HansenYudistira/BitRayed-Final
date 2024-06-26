@@ -233,7 +233,7 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
             if enteredPassword == password {
                 print("Password correct!")
                 makeSafeOpen()
-                defaults.set(false, forKey: "Puzzle4_done")
+                defaults.set(true, forKey: "Puzzle4_done")
             } else {
                 print("Password incorrect!")
                 enteredPassword.removeAll()

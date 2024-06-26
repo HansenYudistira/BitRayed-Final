@@ -130,6 +130,8 @@ class WardrobeShakeView: SKScene, ObservableObject, SKPhysicsContactDelegate {
         key.physicsBody?.affectedByGravity = true
         key.physicsBody?.categoryBitMask = keyCategory
         key.physicsBody?.contactTestBitMask = platformCategory
+        key.physicsBody?.friction = 0.0
+        key.physicsBody?.linearDamping = 0.0
         key.texture?.filteringMode = .nearest
         
         self.addChild(key)

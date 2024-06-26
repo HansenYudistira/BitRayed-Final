@@ -189,7 +189,7 @@ public class DrawerViewController: UIViewController, SKPhysicsContactDelegate {
         if let node = scene.atPoint(sceneLocation) as? SKSpriteNode, node.name == "screw1" {
             if isTapped == false {
                 animateScrew(node)
-                defaults.set(false, forKey: "Puzzle5_done")
+                defaults.set(true, forKey: "Puzzle5_done")
                 isTapped = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     self.returnToGameViewController()

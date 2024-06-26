@@ -15,7 +15,7 @@ struct TapButton: View {
         Button(action: {
             onPress()
         }) {
-            Image(systemName: imageName)
+            Image(imageName)
                 .resizable()
                 .frame(width: 100, height: 100)
         }

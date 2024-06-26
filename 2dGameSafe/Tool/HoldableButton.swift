@@ -16,7 +16,7 @@ struct HoldableButton: View {
         Button {
             
         } label: {
-            Image(systemName: imageName)
+            Image(imageName)
                 .resizable()
                 .frame(width: 100, height: 100)
                 .onLongPressGesture(minimumDuration: .infinity, pressing: { isPressing in

@@ -13,11 +13,12 @@ struct CombinationLockView: View {
     let midArray = ["1 Mid", "2. Mid", "3 Mid", "4 Mid", "5 Mid"]
     let rightArray = ["1 Right", "2. Right", "3 Right", "4 Right", "5 Right"]
     
-    @State private var leftIndex = 0
-    @State private var midIndex = 0
-    @State private var rightIndex = 0
+    @State private var leftIndex: Int? = 0
+    @State private var midIndex: Int? = 0
+    @State private var rightIndex: Int? = 0
     
     @Environment(\.dismiss) private var dismiss
+//    @State var scrolledID: Int? = 0
     
     let defaults = UserDefaults.standard
     
@@ -28,22 +29,39 @@ struct CombinationLockView: View {
                 .resizable()
             
             HStack (spacing: -15) {
-                CustomScrollView(images: leftArray, currentIndex: $leftIndex)
-                CustomScrollView(images: midArray, currentIndex: $midIndex)
-                CustomScrollView(images: rightArray, currentIndex: $rightIndex)
+                CodeScrollView(images: leftArray, scrolledID: $leftIndex)
+                CodeScrollView(images: midArray, scrolledID: $midIndex)
+                CodeScrollView(images: rightArray, scrolledID: $rightIndex)
             }
+            
+            Rectangle()
+                .frame(width: 730, height: 65)
+                .position(x: 600, y: 199)
+            
+            Rectangle()
+                .frame(width: 730, height: 60)
+                .position(x: 600, y: 590)
             
             VStack {
                 Spacer()
                 Button {
-                    print("left \(leftIndex), mid \(midIndex), right \(rightIndex)")
-                    defaults.set(true, forKey: "Puzzle3_done")
+                    print("left \(leftIndex!), mid \(midIndex!), right \(rightIndex!)")
+                    if(leftIndex == 2 && midIndex == 1 && rightIndex == 3 ){
+                        
+                        defaults.set(true, forKey: "Puzzle3_done")
+                        print("Correct")
+                    }else{
+                        print("wrong")
+                    }
                 } label: {
                     Text("Unlock")
                         .font(.largeTitle)
                         .bold()
                 }
             }.padding()
+            
+            Color.black.opacity(0.2)
+                .frame(width: 730, height: 65)
             
             Button {
                 dismiss()
@@ -59,45 +77,32 @@ struct CombinationLockView: View {
     }
 }
 
-struct CustomScrollView: View {
+
+
+struct CodeScrollView: View{
     let images: [String]
-    @Binding var currentIndex: Int
-    
-    var body: some View {
-        ScrollView(.vertical) {
-            VStack {
-                ForEach(0..<5) { index in
-                    GeometryReader { geometry in
-                        Image(images[index])
-                            .interpolation(.none)
-                            .resizable()
-                            .frame(width: 250, height: 445)
-                            .containerRelativeFrame(.vertical, count: 1, spacing: 0)
-                            .scrollTransition { content, phase in
-                                content
-                                    .scaleEffect(phase.isIdentity ? 1.0 : 0.9)
-                                //                                    .rotation3DEffect(.degrees(phase.isIdentity ? 0 : (1 - phase.value) * 90), axis: (x: 1, y: 0, z: 0))
-                            }
-                            .onAppear {
-                                let frame = geometry.frame(in: .global)
-                                let scrollViewHeight = UIScreen.main.bounds.height
-                                if frame.minY >= 0 && frame.minY <= scrollViewHeight / 2 && currentIndex != index {
-                                    DispatchQueue.main.async {
-                                        currentIndex = index
-                                    }
-                                }
-                            }
-                    }
+    @Binding var scrolledID: Int?
+    var body: some View{
+        ScrollView {
+            ForEach(0..<5) { index in
+                Image(images[index])
+                    .interpolation(.none)
+                    .resizable()
                     .frame(width: 250, height: 445)
-                }
+                    .containerRelativeFrame(.vertical, count: 1, spacing: 0)
+                    .id(index)
             }
             .scrollTargetLayout()
         }
-        .frame(width: 250, height: 450)
-        .scrollTargetBehavior(.viewAligned)
+        .scrollTargetBehavior(.paging)
+        .scrollPosition(id: $scrolledID)
+        .frame(width: 250, height: 445)
         .padding(.bottom, 50)
     }
 }
+
+
+
 
 #Preview {
     CombinationLockView()

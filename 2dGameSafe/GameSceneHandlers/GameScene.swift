@@ -8,8 +8,15 @@
 import Foundation
 import SpriteKit
 import AVFoundation
+import SwiftUI
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    @AppStorage("Puzzle1_done") var puzzle1Done: Bool = false
+    @AppStorage("Puzzle2_done") var puzzle2Done: Bool = false
+    @AppStorage("Puzzle3_done") var puzzle3Done: Bool = false
+    @AppStorage("Puzzle4_done") var puzzle4Done: Bool = false
+    @AppStorage("Puzzle5_done") var puzzle5Done: Bool = false
+    @AppStorage("Puzzle6_done") var puzzle6Done: Bool = false
     
     var hero = SKSpriteNode()
     var police = SKSpriteNode()
@@ -40,7 +47,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var contactManager: ContactManager!
     var viewControllerPresenter: ViewControllerPresenter!
     
-    let collisionNames = ["bed", "drawer", "tv", "chest", "wardrobe", "file_cabinet", "safe", "pic_frame", "large_table", "left_chair_1", "left_chair_2", "right_chair_1", "right_chair_2", ]
+    let collisionNames = ["bed", "drawer", "tv", "chest", "wardrobe", "file_cabinet", "safe", "pic_frame", "large_table", "left_chair_1", "left_chair_2", "right_chair_1", "right_chair_2", "stove", "kitchen_sink", "trash_bin", "sofa", "tv_table", "fridge", "flower"]
     
     let defaults = UserDefaults.standard
     
@@ -72,6 +79,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
                 break
             }
+        }
+    }
+    
+    func updateFlowerTexture(flowerNum: String) {
+        if let flower = self.childNode(withName: "flower") as? SKSpriteNode {
+            flower.texture = SKTexture(imageNamed: flowerNum)
+            flower.texture?.filteringMode = .nearest
         }
     }
     
@@ -148,6 +162,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         var movementDirection: AnimationDirection = .none
         
+        if puzzle1Done{
+            updateFlowerTexture(flowerNum: "Flower 3")
+        }
+        if puzzle2Done{
+            updateFlowerTexture(flowerNum: "Flower 4")
+        }
+        if puzzle3Done{
+            updateFlowerTexture(flowerNum: "Flower 5")
+        }
+        if puzzle4Done{
+            updateFlowerTexture(flowerNum: "Flower 6")
+        }
+        if puzzle5Done{
+            updateFlowerTexture(flowerNum: "Flower 7")
+        }
+        if puzzle6Done{
+            updateFlowerTexture(flowerNum: "Flower 8")
+        }
+        
         if moveToLeft {
             hero.position.x -= 2
             movementDirection = .left
@@ -171,24 +204,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if actionButton {
             if let gameState = gameState {
-                if gameState.bedTapable {
-                    if (defaults.bool(forKey: "Puzzle3_done")){
-                        
-                        viewControllerPresenter.present(viewControllerType: .shadow)
-                    }
-                } else if gameState.drawerTapable {
+                
+                if gameState.drawerTapable {
                     viewControllerPresenter.present(viewControllerType: .drawer)
                 } else if gameState.chestTapable {
                     viewControllerPresenter.present(viewControllerType: .safe)
                 } else if gameState.tvTapable {
-                    viewControllerPresenter.present(viewControllerType: .vent)
-                } else if gameState.wardrobeTapable {
+                    if(defaults.bool(forKey: "Puzzle5_done")){
+                        viewControllerPresenter.present(viewControllerType: .vent)
+                    }else{
+                        
+                    }
+                }
+                
+                else if gameState.wardrobeTapable {
                     viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .wardrobe)
                 } else if gameState.cabinetTapable {
-                    viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .cabinet)
+                    if(defaults.bool(forKey: "Puzzle1_done")){
+                        viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .cabinet)
+                    }else{
+                        print("")
+                    }
                 } else if gameState.safeTapable {
-                    viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .lockpick)
-                } else if gameState.picFrameTapable {
+                    if(defaults.bool(forKey: "Puzzle2_done")){
+                        viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .lockpick)
+                    }else{
+                        
+                    }
+                }
+                
+                else if gameState.picFrameTapable {
                     viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .picture)
                 }
             }
@@ -241,7 +286,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func startPossessionTimer() {
         possessionTimer?.invalidate()
-        possessionTimer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(endPossession), userInfo: nil, repeats: false)
+        possessionTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(endPossession), userInfo: nil, repeats: false)
     }
     
     @objc func endPossession() {
