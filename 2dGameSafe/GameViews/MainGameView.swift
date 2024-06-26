@@ -12,7 +12,7 @@ class GameViewModel: ObservableObject {
     let gameScene: GameScene?
     
     init() {
-        let newScene = GameScene(fileNamed: "MainScene 2.sks")!
+        let newScene = GameScene(fileNamed: "MainScene 4.sks")!
         newScene.scaleMode = .resizeFill
         gameScene = newScene
     }
