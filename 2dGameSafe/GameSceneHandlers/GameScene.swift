@@ -296,6 +296,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let hero = self.childNode(withName: "character") as? SKSpriteNode {
             hero.removeAction(forKey: "heroAnimation")
             hero.texture = SKTexture(imageNamed: "protagonis")
+            hero.alpha = 0.5
             hero.size = CGSize(width: 32, height: 32)
             hero.texture?.filteringMode = .nearest
         }
