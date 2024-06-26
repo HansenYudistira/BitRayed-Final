@@ -81,10 +81,10 @@ struct StartView: View{
         }
         
         .onAppear{
-            audioPlayer.playSound(sound: "main_music", type: "wav")
+            audioPlayer.playSoundBackground(sound: "main_music", type: "wav")
         }
         .navigationDestination(isPresented: $navigateToGame){
-            MainGameView()
+            SceneView()
         }
         
     }
@@ -99,11 +99,6 @@ struct StartView: View{
         defaults.set(false, forKey: "Puzzle6_done")
     }
 }
-
-#Preview {
-    StartView()
-}
-
 
 struct RepeatingTile: View {
     let tileImage: Image

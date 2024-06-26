@@ -19,7 +19,6 @@
 		034893D82C292C9E005867CC /* GlitchText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034893D62C292C9E005867CC /* GlitchText.swift */; };
 		034893D92C292C9E005867CC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034893D72C292C9E005867CC /* LoadingView.swift */; };
 		034893DD2C292CCD005867CC /* main_music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 034893DA2C292CCD005867CC /* main_music.wav */; };
-		034893DE2C292CCD005867CC /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034893DB2C292CCD005867CC /* AudioPlayer.swift */; };
 		034893E02C294CBC005867CC /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034893DF2C294CBC005867CC /* GameState.swift */; };
 		9A1BFD5D2C2AB90400FA1E79 /* MyTileSet 1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9A1BFD5C2C2AB90400FA1E79 /* MyTileSet 1.sks */; };
 		9A1E9C8E2C287C4A0079ED3A /* AddCollisionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1E9C852C287C4A0079ED3A /* AddCollisionExtension.swift */; };
@@ -38,6 +37,31 @@
 		A72D47952C2BF1670086E0EB /* dogicapixelbold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A72D47902C2BF1670086E0EB /* dogicapixelbold.ttf */; };
 		A72D47972C2BF17B0086E0EB /* ButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47962C2BF17B0086E0EB /* ButtonContent.swift */; };
 		A72D47992C2BF18B0086E0EB /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47982C2BF18B0086E0EB /* InventoryItem.swift */; };
+		A72D47A62C2C04430086E0EB /* HusbandTalkingSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D479B2C2C04410086E0EB /* HusbandTalkingSFX.wav */; };
+		A72D47A72C2C04430086E0EB /* BestFriendTalkingSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D479C2C2C04410086E0EB /* BestFriendTalkingSFX.wav */; };
+		A72D47A82C2C04430086E0EB /* DoorBellOpenSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D479D2C2C04410086E0EB /* DoorBellOpenSFX.wav */; };
+		A72D47A92C2C04430086E0EB /* KnifeStabSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D479E2C2C04410086E0EB /* KnifeStabSFX.wav */; };
+		A72D47AA2C2C04430086E0EB /* NarrativeAmbienceSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D479F2C2C04410086E0EB /* NarrativeAmbienceSFX.wav */; };
+		A72D47AB2C2C04430086E0EB /* WifeTalkingSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47A02C2C04410086E0EB /* WifeTalkingSFX.wav */; };
+		A72D47AC2C2C04430086E0EB /* FaceSlapSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47A12C2C04410086E0EB /* FaceSlapSFX.wav */; };
+		A72D47AD2C2C04430086E0EB /* NarrativeTalkingSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47A22C2C04410086E0EB /* NarrativeTalkingSFX.wav */; };
+		A72D47AE2C2C04430086E0EB /* RestaurantAmbienceSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47A32C2C04410086E0EB /* RestaurantAmbienceSFX.wav */; };
+		A72D47AF2C2C04430086E0EB /* HouseAmbienceSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47A42C2C04420086E0EB /* HouseAmbienceSFX.wav */; };
+		A72D47B02C2C04430086E0EB /* Music1.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47A52C2C04430086E0EB /* Music1.wav */; };
+		A72D47B42C2C045B0086E0EB /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47B12C2C045B0086E0EB /* AudioPlayer.swift */; };
+		A72D47B52C2C045B0086E0EB /* SizeConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47B22C2C045B0086E0EB /* SizeConstant.swift */; };
+		A72D47C52C2C054A0086E0EB /* CharacterBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47B62C2C054A0086E0EB /* CharacterBoxView.swift */; };
+		A72D47C62C2C054A0086E0EB /* CharacterNameBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47B72C2C054A0086E0EB /* CharacterNameBoxView.swift */; };
+		A72D47C72C2C054A0086E0EB /* DialogTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47B82C2C054A0086E0EB /* DialogTextView.swift */; };
+		A72D47C82C2C054A0086E0EB /* HIntTextBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47BA2C2C054A0086E0EB /* HIntTextBoxView.swift */; };
+		A72D47C92C2C054A0086E0EB /* ScenesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47BB2C2C054A0086E0EB /* ScenesData.swift */; };
+		A72D47CA2C2C054A0086E0EB /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47BC2C2C054A0086E0EB /* SceneView.swift */; };
+		A72D47CB2C2C054A0086E0EB /* BlackScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47BE2C2C054A0086E0EB /* BlackScreenView.swift */; };
+		A72D47CC2C2C054A0086E0EB /* DialogBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47BF2C2C054A0086E0EB /* DialogBoxView.swift */; };
+		A72D47CD2C2C054A0086E0EB /* HintDialogBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47C02C2C054A0086E0EB /* HintDialogBoxView.swift */; };
+		A72D47CE2C2C054A0086E0EB /* HintTextBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47C12C2C054A0086E0EB /* HintTextBoxView.swift */; };
+		A72D47CF2C2C054A0086E0EB /* InGameDialogBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47C22C2C054A0086E0EB /* InGameDialogBoxView.swift */; };
+		A72D47D02C2C054A0086E0EB /* NarrativeSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47C32C2C054A0086E0EB /* NarrativeSceneView.swift */; };
 		A7C9A43C2C1B382D00F98BB9 /* _dGameSafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9A43B2C1B382D00F98BB9 /* _dGameSafeApp.swift */; };
 		A7C9A43E2C1B382D00F98BB9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9A43D2C1B382D00F98BB9 /* ContentView.swift */; };
 		A7C9A4402C1B382E00F98BB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C9A43F2C1B382E00F98BB9 /* Assets.xcassets */; };
@@ -71,7 +95,6 @@
 		034893D62C292C9E005867CC /* GlitchText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlitchText.swift; sourceTree = "<group>"; };
 		034893D72C292C9E005867CC /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		034893DA2C292CCD005867CC /* main_music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = main_music.wav; sourceTree = "<group>"; };
-		034893DB2C292CCD005867CC /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		034893DF2C294CBC005867CC /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		9A1BFD5C2C2AB90400FA1E79 /* MyTileSet 1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "MyTileSet 1.sks"; sourceTree = "<group>"; };
 		9A1E9C7D2C287C4A0079ED3A /* HoldableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldableButton.swift; sourceTree = "<group>"; };
@@ -91,6 +114,31 @@
 		A72D47962C2BF17B0086E0EB /* ButtonContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonContent.swift; sourceTree = "<group>"; };
 		A72D47982C2BF18B0086E0EB /* InventoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 		A72D479A2C2BF8560086E0EB /* -dGameSafe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-dGameSafe-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A72D479B2C2C04410086E0EB /* HusbandTalkingSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = HusbandTalkingSFX.wav; sourceTree = "<group>"; };
+		A72D479C2C2C04410086E0EB /* BestFriendTalkingSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BestFriendTalkingSFX.wav; sourceTree = "<group>"; };
+		A72D479D2C2C04410086E0EB /* DoorBellOpenSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = DoorBellOpenSFX.wav; sourceTree = "<group>"; };
+		A72D479E2C2C04410086E0EB /* KnifeStabSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = KnifeStabSFX.wav; sourceTree = "<group>"; };
+		A72D479F2C2C04410086E0EB /* NarrativeAmbienceSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = NarrativeAmbienceSFX.wav; sourceTree = "<group>"; };
+		A72D47A02C2C04410086E0EB /* WifeTalkingSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = WifeTalkingSFX.wav; sourceTree = "<group>"; };
+		A72D47A12C2C04410086E0EB /* FaceSlapSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FaceSlapSFX.wav; sourceTree = "<group>"; };
+		A72D47A22C2C04410086E0EB /* NarrativeTalkingSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = NarrativeTalkingSFX.wav; sourceTree = "<group>"; };
+		A72D47A32C2C04410086E0EB /* RestaurantAmbienceSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = RestaurantAmbienceSFX.wav; sourceTree = "<group>"; };
+		A72D47A42C2C04420086E0EB /* HouseAmbienceSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = HouseAmbienceSFX.wav; sourceTree = "<group>"; };
+		A72D47A52C2C04430086E0EB /* Music1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Music1.wav; sourceTree = "<group>"; };
+		A72D47B12C2C045B0086E0EB /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		A72D47B22C2C045B0086E0EB /* SizeConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeConstant.swift; sourceTree = "<group>"; };
+		A72D47B62C2C054A0086E0EB /* CharacterBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterBoxView.swift; sourceTree = "<group>"; };
+		A72D47B72C2C054A0086E0EB /* CharacterNameBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterNameBoxView.swift; sourceTree = "<group>"; };
+		A72D47B82C2C054A0086E0EB /* DialogTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogTextView.swift; sourceTree = "<group>"; };
+		A72D47BA2C2C054A0086E0EB /* HIntTextBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HIntTextBoxView.swift; sourceTree = "<group>"; };
+		A72D47BB2C2C054A0086E0EB /* ScenesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenesData.swift; sourceTree = "<group>"; };
+		A72D47BC2C2C054A0086E0EB /* SceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
+		A72D47BE2C2C054A0086E0EB /* BlackScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackScreenView.swift; sourceTree = "<group>"; };
+		A72D47BF2C2C054A0086E0EB /* DialogBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogBoxView.swift; sourceTree = "<group>"; };
+		A72D47C02C2C054A0086E0EB /* HintDialogBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintDialogBoxView.swift; sourceTree = "<group>"; };
+		A72D47C12C2C054A0086E0EB /* HintTextBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintTextBoxView.swift; sourceTree = "<group>"; };
+		A72D47C22C2C054A0086E0EB /* InGameDialogBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InGameDialogBoxView.swift; sourceTree = "<group>"; };
+		A72D47C32C2C054A0086E0EB /* NarrativeSceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarrativeSceneView.swift; sourceTree = "<group>"; };
 		A7C9A4382C1B382D00F98BB9 /* 2dGameSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2dGameSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C9A43B2C1B382D00F98BB9 /* _dGameSafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _dGameSafeApp.swift; sourceTree = "<group>"; };
 		A7C9A43D2C1B382D00F98BB9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -170,8 +218,18 @@
 		034893DC2C292CCD005867CC /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				A72D479C2C2C04410086E0EB /* BestFriendTalkingSFX.wav */,
+				A72D479D2C2C04410086E0EB /* DoorBellOpenSFX.wav */,
+				A72D47A12C2C04410086E0EB /* FaceSlapSFX.wav */,
+				A72D47A42C2C04420086E0EB /* HouseAmbienceSFX.wav */,
+				A72D479B2C2C04410086E0EB /* HusbandTalkingSFX.wav */,
+				A72D479E2C2C04410086E0EB /* KnifeStabSFX.wav */,
+				A72D47A52C2C04430086E0EB /* Music1.wav */,
+				A72D479F2C2C04410086E0EB /* NarrativeAmbienceSFX.wav */,
+				A72D47A22C2C04410086E0EB /* NarrativeTalkingSFX.wav */,
+				A72D47A32C2C04410086E0EB /* RestaurantAmbienceSFX.wav */,
+				A72D47A02C2C04410086E0EB /* WifeTalkingSFX.wav */,
 				034893DA2C292CCD005867CC /* main_music.wav */,
-				034893DB2C292CCD005867CC /* AudioPlayer.swift */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -244,6 +302,50 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		A72D47B32C2C045B0086E0EB /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A72D47B12C2C045B0086E0EB /* AudioPlayer.swift */,
+				A72D47B22C2C045B0086E0EB /* SizeConstant.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		A72D47B92C2C054A0086E0EB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A72D47B62C2C054A0086E0EB /* CharacterBoxView.swift */,
+				A72D47B72C2C054A0086E0EB /* CharacterNameBoxView.swift */,
+				A72D47B82C2C054A0086E0EB /* DialogTextView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A72D47BD2C2C054A0086E0EB /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				A72D47BA2C2C054A0086E0EB /* HIntTextBoxView.swift */,
+				A72D47BB2C2C054A0086E0EB /* ScenesData.swift */,
+				A72D47BC2C2C054A0086E0EB /* SceneView.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		A72D47C42C2C054A0086E0EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A72D47B92C2C054A0086E0EB /* Components */,
+				A72D47BD2C2C054A0086E0EB /* Scene */,
+				A72D47BE2C2C054A0086E0EB /* BlackScreenView.swift */,
+				A72D47BF2C2C054A0086E0EB /* DialogBoxView.swift */,
+				A72D47C02C2C054A0086E0EB /* HintDialogBoxView.swift */,
+				A72D47C12C2C054A0086E0EB /* HintTextBoxView.swift */,
+				A72D47C22C2C054A0086E0EB /* InGameDialogBoxView.swift */,
+				A72D47C32C2C054A0086E0EB /* NarrativeSceneView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A7C9A42F2C1B382C00F98BB9 = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +365,8 @@
 		A7C9A43A2C1B382D00F98BB9 /* 2dGameSafe */ = {
 			isa = PBXGroup;
 			children = (
+				A72D47C42C2C054A0086E0EB /* View */,
+				A72D47B32C2C045B0086E0EB /* Utility */,
 				A72D479A2C2BF8560086E0EB /* -dGameSafe-Info.plist */,
 				A72D47912C2BF1670086E0EB /* Font */,
 				034893DC2C292CCD005867CC /* Music */,
@@ -375,20 +479,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C9A4BC2C2971AD00F98BB9 /* Rain.sks in Resources */,
+				A72D47A72C2C04430086E0EB /* BestFriendTalkingSFX.wav in Resources */,
+				A72D47A62C2C04430086E0EB /* HusbandTalkingSFX.wav in Resources */,
 				A72D47922C2BF1670086E0EB /* dogica.ttf in Resources */,
 				9AF3D8C32C2AE7A200BCD6F3 /* MainScene 2.sks in Resources */,
+				A72D47AC2C2C04430086E0EB /* FaceSlapSFX.wav in Resources */,
+				A72D47AA2C2C04430086E0EB /* NarrativeAmbienceSFX.wav in Resources */,
 				A7C9A4622C2183FB00F98BB9 /* PolyPlane.scn in Resources */,
 				A7C9A4432C1B382E00F98BB9 /* Preview Assets.xcassets in Resources */,
 				034893DD2C292CCD005867CC /* main_music.wav in Resources */,
 				A72D47942C2BF1670086E0EB /* dogicapixel.ttf in Resources */,
+				A72D47AE2C2C04430086E0EB /* RestaurantAmbienceSFX.wav in Resources */,
 				A7C9A4612C2183FB00F98BB9 /* Box.scn in Resources */,
 				9A1E9C972C287C4A0079ED3A /* MainScene.sks in Resources */,
 				9A1E9C992C287C4A0079ED3A /* MyTileSet.sks in Resources */,
 				A72D47952C2BF1670086E0EB /* dogicapixelbold.ttf in Resources */,
 				9A1BFD5D2C2AB90400FA1E79 /* MyTileSet 1.sks in Resources */,
+				A72D47AB2C2C04430086E0EB /* WifeTalkingSFX.wav in Resources */,
+				A72D47AF2C2C04430086E0EB /* HouseAmbienceSFX.wav in Resources */,
+				A72D47AD2C2C04430086E0EB /* NarrativeTalkingSFX.wav in Resources */,
+				A72D47A92C2C04430086E0EB /* KnifeStabSFX.wav in Resources */,
 				A72D47932C2BF1670086E0EB /* dogicabold.ttf in Resources */,
 				A7C9A4BB2C2971AD00F98BB9 /* Assets.xcassets in Resources */,
 				A7C9A4402C1B382E00F98BB9 /* Assets.xcassets in Resources */,
+				A72D47B02C2C04430086E0EB /* Music1.wav in Resources */,
+				A72D47A82C2C04430086E0EB /* DoorBellOpenSFX.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,12 +515,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C9A4592C2183F400F98BB9 /* ShadowViewController.swift in Sources */,
+				A72D47CB2C2C054A0086E0EB /* BlackScreenView.swift in Sources */,
 				A7C9A4522C1C0DB300F98BB9 /* GameViewController.swift in Sources */,
 				A7C9A43E2C1B382D00F98BB9 /* ContentView.swift in Sources */,
 				A72D47972C2BF17B0086E0EB /* ButtonContent.swift in Sources */,
 				A7C9A44C2C1B3D4100F98BB9 /* SafeViewController.swift in Sources */,
 				A7C9A4562C1C256B00F98BB9 /* VentViewController.swift in Sources */,
 				034893D52C292C85005867CC /* StartView.swift in Sources */,
+				A72D47D02C2C054A0086E0EB /* NarrativeSceneView.swift in Sources */,
 				034893D82C292C9E005867CC /* GlitchText.swift in Sources */,
 				034893D92C292C9E005867CC /* LoadingView.swift in Sources */,
 				A72D47992C2BF18B0086E0EB /* InventoryItem.swift in Sources */,
@@ -416,6 +533,7 @@
 				034893C82C292593005867CC /* FileCabinetView.swift in Sources */,
 				034893C92C292593005867CC /* ShakeView.swift in Sources */,
 				034893CA2C292593005867CC /* CombinationLockView.swift in Sources */,
+				A72D47CA2C2C054A0086E0EB /* SceneView.swift in Sources */,
 				A7C9A4B82C29715700F98BB9 /* ViewControllerPresenter.swift in Sources */,
 				034893CB2C292593005867CC /* PeekGyroManager.swift in Sources */,
 				034893CC2C292593005867CC /* WardrobeShakeView.swift in Sources */,
@@ -423,13 +541,23 @@
 				A7C9A4B62C2970A200F98BB9 /* TapButton.swift in Sources */,
 				9A1E9C922C287C4A0079ED3A /* TilePhysicsExtension.swift in Sources */,
 				9A1E9C932C287C4A0079ED3A /* AddHeroExtension.swift in Sources */,
+				A72D47CC2C2C054A0086E0EB /* DialogBoxView.swift in Sources */,
+				A72D47CF2C2C054A0086E0EB /* InGameDialogBoxView.swift in Sources */,
 				9A1E9C942C287C4A0079ED3A /* MainGameView.swift in Sources */,
 				9A1E9C952C287C4A0079ED3A /* GameScene.swift in Sources */,
 				9A1E9C962C287C4A0079ED3A /* HoldableButton.swift in Sources */,
-				034893DE2C292CCD005867CC /* AudioPlayer.swift in Sources */,
+				A72D47B42C2C045B0086E0EB /* AudioPlayer.swift in Sources */,
 				A7C9A47C2C291FD900F98BB9 /* ContactManager.swift in Sources */,
+				A72D47B52C2C045B0086E0EB /* SizeConstant.swift in Sources */,
+				A72D47CE2C2C054A0086E0EB /* HintTextBoxView.swift in Sources */,
+				A72D47C52C2C054A0086E0EB /* CharacterBoxView.swift in Sources */,
 				034893D22C292C4F005867CC /* AllAxisView.swift in Sources */,
+				A72D47C62C2C054A0086E0EB /* CharacterNameBoxView.swift in Sources */,
 				034893D32C292C4F005867CC /* GyroManager.swift in Sources */,
+				A72D47C92C2C054A0086E0EB /* ScenesData.swift in Sources */,
+				A72D47C72C2C054A0086E0EB /* DialogTextView.swift in Sources */,
+				A72D47C82C2C054A0086E0EB /* HIntTextBoxView.swift in Sources */,
+				A72D47CD2C2C054A0086E0EB /* HintDialogBoxView.swift in Sources */,
 				034893E02C294CBC005867CC /* GameState.swift in Sources */,
 				A7C9A4502C1C0DA100F98BB9 /* GameViewControllerRepresentable.swift in Sources */,
 				A7C9A4652C227F2A00F98BB9 /* DrawerViewController.swift in Sources */,

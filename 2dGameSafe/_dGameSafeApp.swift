@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct _dGameSafeApp: App {
+    @State private var dialogBoxDismissed = false
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
