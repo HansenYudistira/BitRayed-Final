@@ -58,6 +58,7 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         safeNode.physicsBody?.isDynamic = false
         safeNode.physicsBody?.categoryBitMask = bitMasks.safe.rawValue
         safeNode.name = "safe"
+        safeNode.texture?.filteringMode = .nearest
         scene.addChild(safeNode)
         
         let lockNode = SKSpriteNode(imageNamed: "safeDial")
@@ -69,6 +70,7 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         lockNode.physicsBody?.isDynamic = false
         lockNode.physicsBody?.categoryBitMask = bitMasks.safe.rawValue
         lockNode.name = "lock"
+        lockNode.texture?.filteringMode = .nearest
         scene.addChild(lockNode)
         
         let indicatorNode = SKSpriteNode(imageNamed: "safeIndicator")
@@ -76,6 +78,7 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         indicatorNode.position = CGPoint(x: 200, y: 210)
         indicatorNode.zPosition = 0
         indicatorNode.name = "indicator"
+        indicatorNode.texture?.filteringMode = .nearest
         safeNode.addChild(indicatorNode)
         
         let handleNode = SKSpriteNode(imageNamed: "safeHandle")
@@ -83,6 +86,7 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         handleNode.position = CGPoint(x: -250, y: 0)
         handleNode.zPosition = 0
         handleNode.name = "handle"
+        handleNode.texture?.filteringMode = .nearest
         safeNode.addChild(handleNode)
         
         let documentNode = SKSpriteNode(imageNamed: "document")
@@ -91,12 +95,14 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         documentNode.zPosition = -1
         documentNode.zRotation = .pi / 2
         documentNode.name = "document"
+        documentNode.texture?.filteringMode = .nearest
         scene.addChild(documentNode)
         
         let insideSafeNode = SKSpriteNode(imageNamed: "safeInside")
         insideSafeNode.size = CGSize(width: width, height: height)
         insideSafeNode.position = CGPoint(x: width / 2, y: height / 2)
         insideSafeNode.zPosition = -2
+        insideSafeNode.texture?.filteringMode = .nearest
         scene.addChild(insideSafeNode)
 
         sceneView.presentScene(scene)

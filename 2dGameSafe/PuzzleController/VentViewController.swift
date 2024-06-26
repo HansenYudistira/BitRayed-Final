@@ -53,6 +53,7 @@ public class VentViewController: UIViewController, SKPhysicsContactDelegate {
         ventNode.physicsBody?.affectedByGravity = false
         ventNode.physicsBody?.isDynamic = false
         ventNode.physicsBody?.categoryBitMask = bitMasks.vent.rawValue
+        ventNode.texture?.filteringMode = .nearest
         ventNode.name = "vent"
         scene.addChild(ventNode)
         
@@ -72,6 +73,7 @@ public class VentViewController: UIViewController, SKPhysicsContactDelegate {
             boltNode.physicsBody?.affectedByGravity = false
             boltNode.physicsBody?.isDynamic = false
             boltNode.physicsBody?.categoryBitMask = bitMasks.bolt.rawValue
+            boltNode.texture?.filteringMode = .nearest
             boltNode.name = "bolt"
             
             scene.addChild(boltNode)
@@ -94,6 +96,7 @@ public class VentViewController: UIViewController, SKPhysicsContactDelegate {
         knifeNode.position = CGPoint(x: width / 2, y: height / 2)
         knifeNode.zPosition = -1
         knifeNode.name = "knife"
+        knifeNode.texture?.filteringMode = .nearest
         scene.addChild(knifeNode)
 
         sceneView.presentScene(scene)
@@ -108,7 +111,6 @@ public class VentViewController: UIViewController, SKPhysicsContactDelegate {
         let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         return path.cgPath
     }
-    
     
     private func addCloseButton() {
         let closeButton = UIButton(type: .system)
