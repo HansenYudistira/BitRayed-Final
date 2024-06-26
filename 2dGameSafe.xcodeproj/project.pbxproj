@@ -62,8 +62,6 @@
 		A72D47CE2C2C054A0086E0EB /* HintTextBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47C12C2C054A0086E0EB /* HintTextBoxView.swift */; };
 		A72D47CF2C2C054A0086E0EB /* InGameDialogBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47C22C2C054A0086E0EB /* InGameDialogBoxView.swift */; };
 		A72D47D02C2C054A0086E0EB /* NarrativeSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47C32C2C054A0086E0EB /* NarrativeSceneView.swift */; };
-		A72D47D22C2C19F30086E0EB /* MainScene 4.sks in Resources */ = {isa = PBXBuildFile; fileRef = A72D47D12C2C19F30086E0EB /* MainScene 4.sks */; };
-		A72D47D42C2C1A1F0086E0EB /* MyTileSet 3.sks in Resources */ = {isa = PBXBuildFile; fileRef = A72D47D32C2C1A1F0086E0EB /* MyTileSet 3.sks */; };
 		A7C9A43C2C1B382D00F98BB9 /* _dGameSafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9A43B2C1B382D00F98BB9 /* _dGameSafeApp.swift */; };
 		A7C9A43E2C1B382D00F98BB9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9A43D2C1B382D00F98BB9 /* ContentView.swift */; };
 		A7C9A4402C1B382E00F98BB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C9A43F2C1B382E00F98BB9 /* Assets.xcassets */; };
@@ -141,8 +139,6 @@
 		A72D47C12C2C054A0086E0EB /* HintTextBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintTextBoxView.swift; sourceTree = "<group>"; };
 		A72D47C22C2C054A0086E0EB /* InGameDialogBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InGameDialogBoxView.swift; sourceTree = "<group>"; };
 		A72D47C32C2C054A0086E0EB /* NarrativeSceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = NarrativeSceneView.swift; sourceTree = "<group>"; };
-		A72D47D12C2C19F30086E0EB /* MainScene 4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = "MainScene 4.sks"; path = "../../../BitRayed-Final/2dGameSafe/SpriteKit/MainScene 4.sks"; sourceTree = "<group>"; };
-		A72D47D32C2C1A1F0086E0EB /* MyTileSet 3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = "MyTileSet 3.sks"; path = "../../../BitRayed-Final/2dGameSafe/SpriteKit/MyTileSet 3.sks"; sourceTree = "<group>"; };
 		A7C9A4382C1B382D00F98BB9 /* 2dGameSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2dGameSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C9A43B2C1B382D00F98BB9 /* _dGameSafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _dGameSafeApp.swift; sourceTree = "<group>"; };
 		A7C9A43D2C1B382D00F98BB9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -287,8 +283,6 @@
 		9A1E9C8A2C287C4A0079ED3A /* SpriteKit */ = {
 			isa = PBXGroup;
 			children = (
-				A72D47D32C2C1A1F0086E0EB /* MyTileSet 3.sks */,
-				A72D47D12C2C19F30086E0EB /* MainScene 4.sks */,
 				9A1E9C882C287C4A0079ED3A /* MyTileSet.sks */,
 				9A1BFD5C2C2AB90400FA1E79 /* MyTileSet 2.sks */,
 				9A1E9C892C287C4A0079ED3A /* MainScene.sks */,
@@ -499,11 +493,9 @@
 				A7C9A4612C2183FB00F98BB9 /* Box.scn in Resources */,
 				9A1E9C972C287C4A0079ED3A /* MainScene.sks in Resources */,
 				9A1E9C992C287C4A0079ED3A /* MyTileSet.sks in Resources */,
-				A72D47D22C2C19F30086E0EB /* MainScene 4.sks in Resources */,
 				A72D47952C2BF1670086E0EB /* dogicapixelbold.ttf in Resources */,
 				9A1BFD5D2C2AB90400FA1E79 /* MyTileSet 2.sks in Resources */,
 				A72D47AB2C2C04430086E0EB /* WifeTalkingSFX.wav in Resources */,
-				A72D47D42C2C1A1F0086E0EB /* MyTileSet 3.sks in Resources */,
 				A72D47AF2C2C04430086E0EB /* HouseAmbienceSFX.wav in Resources */,
 				A72D47AD2C2C04430086E0EB /* NarrativeTalkingSFX.wav in Resources */,
 				A72D47A92C2C04430086E0EB /* KnifeStabSFX.wav in Resources */,
