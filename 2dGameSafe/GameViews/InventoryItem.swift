@@ -14,10 +14,12 @@ struct InventoryItem: View {
     @AppStorage("Puzzle3_done") var puzzle3Done: Bool = false
     @AppStorage("Puzzle4_done") var puzzle4Done: Bool = false
     @AppStorage("Puzzle5_done") var puzzle5Done: Bool = false
+    @AppStorage("Puzzle6_done") var puzzle6Done: Bool = false
     @AppStorage("trashFound") var trashFound: Bool = false
     
     @State private var showHint = false
     @State private var hintMessage = ""
+    @State private var isHintShowing = false
     
     var body: some View {
         VStack {
@@ -30,22 +32,25 @@ struct InventoryItem: View {
                     } label: {
                         InvImg(imageName: "Key Clean")
                     }
+                    .disabled(isHintShowing)
                 }
                 
                 if puzzle2Done {
                     Button {
-                        showHintWithMessage("Folder 1: Surat Ancaman & hint about hiding something in painting")
+                        showHintWithMessage("Folder 1: Threatening letter & there must be something on the painting")
                     } label: {
                         InvImg(imageName: "Folder 1")
                     }
+                    .disabled(isHintShowing)
                 }
                 
                 if puzzle3Done {
                     Button {
-                        showHintWithMessage("Surat cinta")
+                        showHintWithMessage("Love Letter")
                     } label: {
                         InvImg(imageName: "document")
                     }
+                    .disabled(isHintShowing)
                 }
                 
                 if puzzle4Done {
@@ -54,6 +59,7 @@ struct InventoryItem: View {
                     } label: {
                         InvImg(imageName: "Painting")
                     }
+                    .disabled(isHintShowing)
                 }
                 
                 if puzzle5Done {
@@ -62,6 +68,16 @@ struct InventoryItem: View {
                     } label: {
                         InvImg(imageName: "drawerScrewdriver")
                     }
+                    .disabled(isHintShowing)
+                }
+                
+                if puzzle6Done {
+                    Button {
+                        showHintWithMessage("There is knife covered with RED SCARF")
+                    } label: {
+                        InvImg(imageName: "Background")
+                    }
+                    .disabled(isHintShowing)
                 }
                 
                 if trashFound {
@@ -70,6 +86,7 @@ struct InventoryItem: View {
                     } label: {
                         InvImg(imageName: "evidence_trash")
                     }
+                    .disabled(isHintShowing)
                 }
             }
             Spacer()
@@ -81,6 +98,7 @@ struct InventoryItem: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             withAnimation {
                                 showHint = false
+                                isHintShowing = false
                             }
                         }
                     }
@@ -93,6 +111,7 @@ struct InventoryItem: View {
         hintMessage = message
         withAnimation {
             showHint = true
+            isHintShowing = true
         }
     }
 }

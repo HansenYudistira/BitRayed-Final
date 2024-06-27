@@ -91,10 +91,12 @@ struct MainGameView: View {
                         TapButton(imageName: "action") {
                             gameViewModel.gameScene?.actionButton = true
                         }
+                        .disabled(showHint)
                         
                         TapButton(imageName: "posses") {
                             gameViewModel.gameScene?.possesButton = true
                         }
+                        .disabled(showHint)
                     }
                 }
                 .padding()
