@@ -76,15 +76,6 @@ struct CombinationLockView: View {
                     CodeScrollView(images: midArray, scrolledID: $midIndex)
                     CodeScrollView(images: rightArray, scrolledID: $rightIndex)
                 }
-                
-                Rectangle()
-                    .frame(width: 730, height: 65)
-                    .position(x: 600, y: 199)
-                
-                Rectangle()
-                    .frame(width: 730, height: 60)
-                    .position(x: 600, y: 590)
-                
                 VStack {
                     Spacer()
                     Button {

@@ -26,7 +26,7 @@ struct MainGameView: View {
     @State private var moveToRight = false
     
     @State private var showDialog = true
-
+    
     
     @StateObject var gameState = GameState()
     @StateObject var gameViewModel = GameViewModel()
@@ -53,7 +53,7 @@ struct MainGameView: View {
                         }
                 }
                 
-                HStack {
+                HStack (alignment: .bottom) {
                     VStack (spacing: -45){
                         Spacer()
                         HoldableButton(imageName: "up") {
@@ -96,9 +96,9 @@ struct MainGameView: View {
                             gameViewModel.gameScene?.possesButton = true
                         }
                     }
-                    .offset(x: 0, y: 300)
                 }
                 .padding()
+                
                 
                 InventoryItem()
                 

@@ -66,7 +66,7 @@ struct InventoryItem: View {
                 
                 if trashFound {
                     Button {
-                        showHintWithMessage("< > << \nIs that some type of code?")
+                        showHintWithMessage("> < >> \nIs that some type of code?")
                     } label: {
                         InvImg(imageName: "evidence_trash")
                     }
