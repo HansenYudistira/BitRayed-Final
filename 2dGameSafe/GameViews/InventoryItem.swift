@@ -14,79 +14,101 @@ struct InventoryItem: View {
     @AppStorage("Puzzle3_done") var puzzle3Done: Bool = false
     @AppStorage("Puzzle4_done") var puzzle4Done: Bool = false
     @AppStorage("Puzzle5_done") var puzzle5Done: Bool = false
+    @AppStorage("trashFound") var trashFound: Bool = false
     
-    var body: some View{
+    @State private var showHint = false
+    @State private var hintMessage = ""
+    
+    var body: some View {
         VStack {
-            HStack{
+            HStack {
                 Spacer()
-                if puzzle1Done{
-                    Button {
-                        print("key")
-                    } label: {
-                        Image("KeyFall")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .padding()
-                            .background(Circle())
-                    }
-                }else{
-                    
-                }
                 
-                if puzzle2Done{
+                if puzzle1Done {
                     Button {
-                        print("Folder 1. surat cinta & hint about hiding something in painting")
+                        showHintWithMessage("I got a key \nWhat can i open with this?")
                     } label: {
-                        Image("Folder 1")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .padding()
-                            .background(Circle())
+                        InvImg(imageName: "Key Clean")
                     }
                 }
                 
-                if puzzle3Done{
+                if puzzle2Done {
                     Button {
-                        print("Surat Ancaman & kode brankas")
+                        showHintWithMessage("Folder 1: Surat Ancaman & hint about hiding something in painting")
                     } label: {
-                        Image("document")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .padding()
-                            .background(Circle())
+                        InvImg(imageName: "Folder 1")
                     }
                 }
                 
-                if puzzle4Done{
+                if puzzle3Done {
                     Button {
-                        print("foto suami dengan selingkuhan")
+                        showHintWithMessage("Surat cinta")
                     } label: {
-                        Image("Painting")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .padding()
-                            .background(Circle())
+                        InvImg(imageName: "document")
                     }
                 }
                 
-                if puzzle5Done{
+                if puzzle4Done {
                     Button {
-                        print("screwdriver acquired")
+                        showHintWithMessage("Picture")
                     } label: {
-                        Image("drawerScrewdriver")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .padding()
-                            .background(Circle())
+                        InvImg(imageName: "Painting")
                     }
                 }
                 
+                if puzzle5Done {
+                    Button {
+                        showHintWithMessage("Maybe I could open something with this")
+                    } label: {
+                        InvImg(imageName: "drawerScrewdriver")
+                    }
+                }
+                
+                if trashFound {
+                    Button {
+                        showHintWithMessage("< > << \nIs that some type of code?")
+                    } label: {
+                        InvImg(imageName: "evidence_trash")
+                    }
+                }
             }
             Spacer()
-        }.padding()
+            
+            if showHint {
+                HintDialogBoxView(hintText: hintMessage)
+                    .transition(.opacity)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            withAnimation {
+                                showHint = false
+                            }
+                        }
+                    }
+            }
+        }
+        .padding()
+    }
+    
+    private func showHintWithMessage(_ message: String) {
+        hintMessage = message
+        withAnimation {
+            showHint = true
+        }
     }
 }
 
 #Preview {
     InventoryItem()
+}
+
+struct InvImg: View {
+    var imageName: String
+    
+    var body: some View {
+        Image(imageName)
+            .resizable()
+            .frame(width: 50, height: 50)
+            .padding(25)
+            .background(Image("inventoryBg").resizable())
+    }
 }

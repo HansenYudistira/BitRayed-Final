@@ -82,7 +82,11 @@ struct StartView: View{
         }
         
         .onAppear{
-            audioPlayer.playSoundBackground(sound: "main_music", type: "wav")
+//            audioPlayer.playSoundBackground(sound: "main_music", type: "wav")
+            if let backgroundMusic = Bundle.main.url(forResource: "main_music", withExtension: "wav") {
+                AudioPlayer.playSound(url: backgroundMusic, withID: "backgroundMusic", loop: true)
+                
+            }
         }
         .navigationDestination(isPresented: $navigateToScene){
             SceneView()
@@ -101,6 +105,7 @@ struct StartView: View{
         defaults.set(false, forKey: "Puzzle4_done")
         defaults.set(false, forKey: "Puzzle5_done")
         defaults.set(false, forKey: "Puzzle6_done")
+        defaults.set(false, forKey: "trashFound")
     }
 }
 

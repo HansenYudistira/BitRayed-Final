@@ -21,6 +21,11 @@ class ContactManager: ObservableObject {
     
     func handleContactBegin(contactA: String?, contactB: String?) {
         
+        if (contactA == "character" && contactB == "trash_bin") || (contactA == "trash_bin" && contactB == "character") {
+            gameState.trashTapable = true
+            actionSign?.isHidden = false
+        }
+        
         if (contactA == "character" && contactB == "drawer") || (contactA == "drawer" && contactB == "character") {
             gameState.drawerTapable = true
             actionSign?.isHidden = false
@@ -63,6 +68,11 @@ class ContactManager: ObservableObject {
     func handleContactEnd(contactA: String?, contactB: String?) {
         if (contactA == "character" && contactB == "drawer") || (contactA == "drawer" && contactB == "character") {
             gameState.drawerTapable = false
+            actionSign?.isHidden = true
+        }
+        
+        if (contactA == "character" && contactB == "trash_bin") || (contactA == "trash_bin" && contactB == "character") {
+            gameState.trashTapable = false
             actionSign?.isHidden = true
         }
         

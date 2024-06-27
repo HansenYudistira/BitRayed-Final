@@ -79,6 +79,8 @@
 		A72D47FD2C2C5A490086E0EB /* DoorOpenSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47ED2C2C5A490086E0EB /* DoorOpenSFX.wav */; };
 		A72D47FF2C2C714B0086E0EB /* possessedSFX.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A72D47FE2C2C714B0086E0EB /* possessedSFX.mp3 */; };
 		A72D48012C2C7F970086E0EB /* walkingSFX.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A72D48002C2C7F970086E0EB /* walkingSFX.mp3 */; };
+		A72D48052C2D28BE0086E0EB /* EndVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D48022C2D28BE0086E0EB /* EndVideoView.swift */; };
+		A72D48062C2D28BE0086E0EB /* TheEnd#1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A72D48032C2D28BE0086E0EB /* TheEnd#1.mp4 */; };
 		A7C9A43C2C1B382D00F98BB9 /* _dGameSafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9A43B2C1B382D00F98BB9 /* _dGameSafeApp.swift */; };
 		A7C9A43E2C1B382D00F98BB9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9A43D2C1B382D00F98BB9 /* ContentView.swift */; };
 		A7C9A4402C1B382E00F98BB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C9A43F2C1B382E00F98BB9 /* Assets.xcassets */; };
@@ -173,6 +175,8 @@
 		A72D47ED2C2C5A490086E0EB /* DoorOpenSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = DoorOpenSFX.wav; sourceTree = "<group>"; };
 		A72D47FE2C2C714B0086E0EB /* possessedSFX.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = possessedSFX.mp3; sourceTree = "<group>"; };
 		A72D48002C2C7F970086E0EB /* walkingSFX.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = walkingSFX.mp3; sourceTree = "<group>"; };
+		A72D48022C2D28BE0086E0EB /* EndVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndVideoView.swift; sourceTree = "<group>"; };
+		A72D48032C2D28BE0086E0EB /* TheEnd#1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TheEnd#1.mp4"; sourceTree = "<group>"; };
 		A7C9A4382C1B382D00F98BB9 /* 2dGameSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2dGameSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C9A43B2C1B382D00F98BB9 /* _dGameSafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _dGameSafeApp.swift; sourceTree = "<group>"; };
 		A7C9A43D2C1B382D00F98BB9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -405,6 +409,15 @@
 			path = PuzzleSoundEffect;
 			sourceTree = "<group>";
 		};
+		A72D48042C2D28BE0086E0EB /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				A72D48022C2D28BE0086E0EB /* EndVideoView.swift */,
+				A72D48032C2D28BE0086E0EB /* TheEnd#1.mp4 */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		A7C9A42F2C1B382C00F98BB9 = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +437,7 @@
 		A7C9A43A2C1B382D00F98BB9 /* 2dGameSafe */ = {
 			isa = PBXGroup;
 			children = (
+				A72D48042C2D28BE0086E0EB /* Video */,
 				A72D47C42C2C054A0086E0EB /* View */,
 				A72D47B32C2C045B0086E0EB /* Utility */,
 				A72D479A2C2BF8560086E0EB /* -dGameSafe-Info.plist */,
@@ -568,6 +582,7 @@
 				A72D47EF2C2C5A490086E0EB /* SymbolLockSwipedSFX.wav in Resources */,
 				A72D47AB2C2C04430086E0EB /* WifeTalkingSFX.wav in Resources */,
 				A72D47F52C2C5A490086E0EB /* LockPickingPinCorrectSFX.wav in Resources */,
+				A72D48062C2D28BE0086E0EB /* TheEnd#1.mp4 in Resources */,
 				A72D47AF2C2C04430086E0EB /* HouseAmbienceSFX.wav in Resources */,
 				A72D47F22C2C5A490086E0EB /* RotateSafeCodeSFX.wav in Resources */,
 				A72D47F42C2C5A490086E0EB /* LockPickingPinSFX.wav in Resources */,
@@ -628,6 +643,7 @@
 				A72D47CE2C2C054A0086E0EB /* HintTextBoxView.swift in Sources */,
 				A72D47C52C2C054A0086E0EB /* CharacterBoxView.swift in Sources */,
 				034893D22C292C4F005867CC /* AllAxisView.swift in Sources */,
+				A72D48052C2D28BE0086E0EB /* EndVideoView.swift in Sources */,
 				A72D47C62C2C054A0086E0EB /* CharacterNameBoxView.swift in Sources */,
 				034893D32C292C4F005867CC /* GyroManager.swift in Sources */,
 				A72D47C92C2C054A0086E0EB /* ScenesData.swift in Sources */,

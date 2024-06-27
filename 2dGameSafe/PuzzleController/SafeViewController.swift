@@ -294,7 +294,7 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         let yPosition = sceneView.frame.height - 200
         
         let rotateLeftButton = UIButton(type: .custom)
-        rotateLeftButton.setImage(UIImage(named: "left"), for: .normal)
+        rotateLeftButton.setImage(UIImage(named: "right"), for: .normal)
         rotateLeftButton.frame = CGRect(x: 20, y: yPosition, width: buttonSize.width, height: buttonSize.height)
         rotateLeftButton.contentHorizontalAlignment = .fill
         rotateLeftButton.contentVerticalAlignment = .fill
@@ -302,7 +302,7 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         view.addSubview(rotateLeftButton)
         
         let rotateRightButton = UIButton(type: .custom)
-        rotateRightButton.setImage(UIImage(named: "right"), for: .normal)
+        rotateRightButton.setImage(UIImage(named: "left"), for: .normal)
         rotateRightButton.frame = CGRect(x: scene.size.width - 170, y: yPosition, width: buttonSize.width, height: buttonSize.height)
         rotateRightButton.contentHorizontalAlignment = .fill
         rotateRightButton.contentVerticalAlignment = .fill

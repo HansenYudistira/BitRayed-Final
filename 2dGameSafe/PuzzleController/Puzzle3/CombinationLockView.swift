@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct CombinationLockView: View {
     
     let leftArray = ["1 Left", "2. Left", "3 Left", "4 Left", "5 Left"]
@@ -16,9 +18,10 @@ struct CombinationLockView: View {
     @State private var leftIndex: Int? = 0
     @State private var midIndex: Int? = 0
     @State private var rightIndex: Int? = 0
+    @State private var correctCodeEntered = false
+    @State private var showLoveLetterText = false
     
     @Environment(\.dismiss) private var dismiss
-//    @State var scrolledID: Int? = 0
     
     let defaults = UserDefaults.standard
     
@@ -27,61 +30,102 @@ struct CombinationLockView: View {
             Image("level3_bg")
                 .interpolation(.none)
                 .resizable()
+                .ignoresSafeArea()
             
-            HStack (spacing: -15) {
-                CodeScrollView(images: leftArray, scrolledID: $leftIndex)
-                CodeScrollView(images: midArray, scrolledID: $midIndex)
-                CodeScrollView(images: rightArray, scrolledID: $rightIndex)
-            }
-            
-            Rectangle()
-                .frame(width: 730, height: 65)
-                .position(x: 600, y: 199)
-            
-            Rectangle()
-                .frame(width: 730, height: 60)
-                .position(x: 600, y: 590)
-            
-            VStack {
-                Spacer()
-                Button {
-                    print("left \(leftIndex!), mid \(midIndex!), right \(rightIndex!)")
-                    if(leftIndex == 3 && midIndex == 1 && rightIndex == 4 ){
-                        
-                        defaults.set(true, forKey: "Puzzle3_done")
-                        print("Correct")
-                    }else{
-                        print("wrong")
+            if correctCodeEntered {
+                Color.black.opacity(0.8)
+                    .ignoresSafeArea()
+                    .transition(.opacity)
+                
+                VStack {
+                    if showLoveLetterText {
+                        VStack(spacing: 15){
+                            Text("Love letter bla bla bla")
+                                .font(.custom("dogica", size: 22))
+                            
+                            Button {
+                                dismiss()
+                            } label: {
+                                Text("Close")
+                                    .font(.custom("dogica", size: 20))
+                                    .foregroundStyle(.black)
+                                    .bold()
+                                    .padding(55)
+                                    .background(Image("button_template").resizable())
+                            }
+                        }
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 25).foregroundStyle(.thinMaterial))
+                        .transition(.opacity)
+                    } else {
+                        Image("loveLetter")
+                            .interpolation(.none)
+                            .resizable()
+                            .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.height / 1.5)
+                            .onTapGesture {
+                                withAnimation {
+                                    showLoveLetterText.toggle()
+                                }
+                            }
                     }
-                } label: {
-                    Text("Unlock")
-                        .font(.largeTitle)
-                        .bold()
                 }
-            }.padding()
-            
-            Color.black.opacity(0.2)
-                .frame(width: 730, height: 65)
-            
-            Button {
-                dismiss()
-            } label: {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.largeTitle)
-                    .foregroundStyle(.red)
+                .zIndex(3)
+            } else {
+                HStack (spacing: -15) {
+                    CodeScrollView(images: leftArray, scrolledID: $leftIndex)
+                    CodeScrollView(images: midArray, scrolledID: $midIndex)
+                    CodeScrollView(images: rightArray, scrolledID: $rightIndex)
+                }
+                
+                Rectangle()
+                    .frame(width: 730, height: 65)
+                    .position(x: 600, y: 199)
+                
+                Rectangle()
+                    .frame(width: 730, height: 60)
+                    .position(x: 600, y: 590)
+                
+                VStack {
+                    Spacer()
+                    Button {
+                        print("left \(leftIndex!), mid \(midIndex!), right \(rightIndex!)")
+                        if(leftIndex == 3 && midIndex == 1 && rightIndex == 4 ){
+                            defaults.set(true, forKey: "Puzzle3_done")
+                            print("Correct")
+                            withAnimation {
+                                correctCodeEntered = true
+                            }
+                        } else {
+                            print("Wrong")
+                        }
+                    } label: {
+                        Text("Unlock")
+                            .font(.custom("dogica", size: 20))
+                            .foregroundStyle(.black)
+                            .bold()
+                            .padding(55)
+                            .background(Image("button_template").resizable())
+                    }
+                }.padding(10)
+                
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.largeTitle)
+                        .foregroundStyle(.red)
+                }
+                .position(CGPoint(x: 50, y: 50))
+                .zIndex(4)
             }
-            .position(CGPoint(x: 50, y: 50))
-            .zIndex(4)
         }
-        .ignoresSafeArea()
-        
     }
 }
 
-struct CodeScrollView: View{
+struct CodeScrollView: View {
     let images: [String]
     @Binding var scrolledID: Int?
-    var body: some View{
+    var body: some View {
         ScrollView {
             ForEach(0..<5) { index in
                 Image(images[index])

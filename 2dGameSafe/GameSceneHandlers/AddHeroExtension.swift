@@ -62,8 +62,11 @@ extension GameScene {
 
         for index in 1...frameCount {
             let textureName = "\(atlasName)\(index)"
-            frames.append(SKTexture(imageNamed: textureName))
+            let texture = SKTexture(imageNamed: textureName)
+            texture.filteringMode = .nearest
+            frames.append(texture)
         }
+        
         
         return frames
     }

@@ -10,26 +10,27 @@ import SwiftUI
 struct AllAxisView: View {
     @StateObject private var gyroManager = GyroManager()
     @Environment(\.dismiss) private var dismiss
-
+    
     var body: some View {
         ZStack {
             Image("PaintingHint")
                 .resizable()
-                .ignoresSafeArea()
-            
-            Color.clear
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .ignoresSafeArea()
+            
+            HintNumber()
+            
+            ZStack{
+                Image("PaintingHint")
+                                .resizable()
+                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                                .ignoresSafeArea()
+                
+                Color.black.opacity(0.5)
+            }
                 .reverseMask {
-                    Image(systemName: "eye.fill")
-                        .font(.title3)
-                        .foregroundStyle(.white)
-                        .padding(20)
-                        .background(
-                            Circle()
-                                .fill(.green)
-                                .frame(width: 250, height: 200)
-                        )
+                    Circle()
+                        .frame(width: 250, height: 200)
                         .position(gyroManager.lookAtPoint)
                         .zIndex(1)
                         .animation(Animation.easeInOut(duration: 1.2), value: gyroManager.lookAtPoint)
@@ -65,4 +66,38 @@ extension View {
 
 #Preview {
     AllAxisView()
+}
+
+struct HintNumber: View {
+    var body: some View {
+        VStack{
+            HStack(spacing:-5){
+                Image("I")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                Image("I")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+            }
+            Spacer()
+            
+            HStack(spacing:-5){
+                Spacer()
+                Image("V")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+            }
+            Spacer()
+            HStack(spacing:-5){
+                Image("I")
+                    .resizable()
+                    .frame(width: 70, height: 70)
+                Image("V")
+                    .resizable()
+                    .frame(width: 70, height: 70)
+                Spacer()
+            }
+        }
+        .padding(90)
+    }
 }

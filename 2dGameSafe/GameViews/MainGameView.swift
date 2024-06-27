@@ -25,10 +25,16 @@ struct MainGameView: View {
     @State private var moveToLeft = false
     @State private var moveToRight = false
     
+    @State private var showDialog = true
+
+    
     @StateObject var gameState = GameState()
     @StateObject var gameViewModel = GameViewModel()
     @State private var scene: GameScene? = nil
     
+    
+    @State private var showHint = false
+    @State private var hintMessage = ""
     
     var body: some View {
         VStack {
@@ -41,6 +47,9 @@ struct MainGameView: View {
                         .onAppear {
                             print("Scene appeared")
                             scene.gameState = gameState
+                            scene.showHint = { message in
+                                showHintWithMessage(message)
+                            }
                         }
                 }
                 
@@ -92,6 +101,22 @@ struct MainGameView: View {
                 .padding()
                 
                 InventoryItem()
+                
+                if defaults.bool(forKey: "NewGame"){
+                    HintDialogBoxView(hintText: "AM I DEAD?! \nAM I A GHOST NOW?! \nI HAVE TO FIND WHO DID THIS TO ME!")
+                }
+                
+                if showHint {
+                    HintDialogBoxView(hintText: hintMessage)
+                        .transition(.opacity)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                withAnimation {
+                                    showHint = false
+                                }
+                            }
+                        }
+                }
             }
             .navigationBarBackButtonHidden()
             .ignoresSafeArea()
@@ -99,7 +124,15 @@ struct MainGameView: View {
             defaults.synchronize()
         }
     }
+    
+    private func showHintWithMessage(_ message: String) {
+        hintMessage = message
+        withAnimation {
+            showHint = true
+        }
+    }
 }
+
 
 
 #Preview {

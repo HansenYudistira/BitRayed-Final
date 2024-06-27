@@ -8,7 +8,9 @@
 import Foundation
 
 class GameState: ObservableObject{
-    
+    @Published var isGhostMode = true
+
+    @Published var trashTapable = false
     @Published var bedTapable = false
     @Published var drawerTapable = false
     @Published var tvTapable = false

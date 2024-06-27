@@ -17,6 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     @AppStorage("Puzzle4_done") var puzzle4Done: Bool = false
     @AppStorage("Puzzle5_done") var puzzle5Done: Bool = false
     @AppStorage("Puzzle6_done") var puzzle6Done: Bool = false
+    @AppStorage("trashFound") var trashFound: Bool = false
     
     var hero = SKSpriteNode()
     var police = SKSpriteNode()
@@ -52,6 +53,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     var contactManager: ContactManager!
     var viewControllerPresenter: ViewControllerPresenter!
+    
+    var showHint: ((String) -> Void)?
+    
+    var solvedPuzzlesCount = 3
+    var puzzle2Processed = false
+    var puzzle3Processed = false
+    var puzzle4Processed = false
+    var puzzle5Processed = false
+    var puzzle6Processed = false
     
     let collisionNames = ["bed", "drawer", "tv", "chest", "wardrobe", "file_cabinet", "safe", "pic_frame", "large_table", "left_chair_1", "left_chair_2", "right_chair_1", "right_chair_2", "stove", "kitchen_sink", "trash_bin", "sofa", "tv_table", "fridge", "flower", "door"]
     
@@ -168,23 +178,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         var movementDirection: AnimationDirection = .none
         
-        if puzzle1Done{
-            updateFlowerTexture(flowerNum: "Flower 3")
+        if puzzle1Done && puzzle2Done && puzzle3Done && puzzle4Done && puzzle5Done && puzzle6Done {
+            AudioPlayer.stopAllMusic()
+            viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .endVideo)
         }
-        if puzzle2Done{
-            updateFlowerTexture(flowerNum: "Flower 4")
+        
+        if puzzle1Done {
+            updateFlowerTexture(flowerNum: "Flower \(solvedPuzzlesCount)")
         }
-        if puzzle3Done{
-            updateFlowerTexture(flowerNum: "Flower 5")
+
+        if puzzle2Done && !puzzle2Processed {
+            solvedPuzzlesCount += 1
+            print("Flower \(solvedPuzzlesCount)")
+            updateFlowerTexture(flowerNum: "Flower \(solvedPuzzlesCount)")
+            puzzle2Processed = true
         }
-        if puzzle4Done{
-            updateFlowerTexture(flowerNum: "Flower 6")
+
+        if puzzle3Done && !puzzle3Processed {
+            solvedPuzzlesCount += 1
+            updateFlowerTexture(flowerNum: "Flower \(solvedPuzzlesCount)")
+            puzzle3Processed = true
         }
-        if puzzle5Done{
-            updateFlowerTexture(flowerNum: "Flower 7")
+        if puzzle4Done && !puzzle4Processed {
+            solvedPuzzlesCount += 1
+            updateFlowerTexture(flowerNum: "Flower \(solvedPuzzlesCount)")
+            puzzle4Processed = true
         }
-        if puzzle6Done{
-            updateFlowerTexture(flowerNum: "Flower 8")
+
+        if puzzle5Done && !puzzle5Processed {
+            solvedPuzzlesCount += 1
+            updateFlowerTexture(flowerNum: "Flower \(solvedPuzzlesCount)")
+            puzzle5Processed = true
+        }
+
+        if puzzle6Done && !puzzle6Processed {
+            solvedPuzzlesCount += 1
+            updateFlowerTexture(flowerNum: "Flower \(solvedPuzzlesCount)")
+            puzzle6Processed = true
         }
         
         if moveToLeft {
@@ -208,40 +238,73 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if actionButton {
             if let gameState = gameState {
-                
-                if gameState.drawerTapable {
-                    viewControllerPresenter.present(viewControllerType: .drawer)
-                } else if gameState.chestTapable {
-                    viewControllerPresenter.present(viewControllerType: .safe)
-                } else if gameState.tvTapable {
-                    if(defaults.bool(forKey: "Puzzle5_done")){
-                        viewControllerPresenter.present(viewControllerType: .vent)
-                    }else{
-                        
-                    }
-                }
-                
-                else if gameState.wardrobeTapable {
-                    viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .wardrobe)
-                } else if gameState.cabinetTapable {
-                    if(defaults.bool(forKey: "Puzzle1_done")){
-                        viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .cabinet)
-                        if let soundURL = Bundle.main.url(forResource: "FilingCabinetOpenSFX", withExtension: "wav") {
-                            AudioPlayer.playSound(url: soundURL, withID: "FilingCabinetOpenSFX")
+                if !gameState.isGhostMode{
+                    if gameState.drawerTapable {
+                        if(!defaults.bool(forKey: "Puzzle5_done")){
+                            viewControllerPresenter.present(viewControllerType: .drawer)
+                        }else{
+                            showHint?("I already found the screwdriver")
                         }
-                    }else{
-                        print("")
-                    }
-                } else if gameState.safeTapable {
-                    if(defaults.bool(forKey: "Puzzle2_done")){
-                        viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .lockpick)
-                    }else{
                         
+                        
+                    } else if gameState.chestTapable {
+                        if !defaults.bool(forKey: "Puzzle4_done"){
+                            viewControllerPresenter.present(viewControllerType: .safe)
+                        }else{
+                            showHint?("I already opened the safe")
+                        }
+                        
+                    } else if gameState.tvTapable {
+                        if(defaults.bool(forKey: "Puzzle5_done")){
+                            if !defaults.bool(forKey: "Puzzle6_done"){
+                                viewControllerPresenter.present(viewControllerType: .vent)
+                            } else{
+                                showHint?("I already check the vent")
+                            }
+                        }else{
+                            showHint?("There's something inside the vent.\nI need something to open the vent")
+                        }
                     }
-                }
-                
-                else if gameState.picFrameTapable {
-                    viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .picture)
+                    
+                    else if gameState.wardrobeTapable {
+                        if !defaults.bool(forKey: "Puzzle1_done"){
+                            viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .wardrobe)
+                        }else{
+                            showHint?("I already found the key")
+                        }
+                        
+                    } else if gameState.cabinetTapable {
+                        if(defaults.bool(forKey: "Puzzle1_done")){
+                            if !defaults.bool(forKey: "Puzzle2_done"){
+                                viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .cabinet)
+                            }else{
+                                showHint?("I already found the threatning letter.")
+                            }
+                        }else{
+                            showHint?("I need a key to open this")
+                        }
+                    } else if gameState.safeTapable {
+                        
+                        if(!defaults.bool(forKey: "Puzzle3_done")){
+                            viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .lockpick)
+                        }else{
+                            showHint?("I already found the love letter")
+                        }
+                    }
+                    
+                    else if gameState.picFrameTapable {
+                        viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .picture)
+                    }
+                    else if gameState.trashTapable{
+                        if !trashFound{
+                            showHint?("Is this some type of code?")
+                                trashFound = true
+                        }else{
+                            showHint?("I already check the trash bin")
+                        }
+                    }
+                }else{
+                    showHint?("I need to possess someone to interact with object")
                 }
             }
         }
@@ -263,6 +326,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if let soundURL = Bundle.main.url(forResource: "possessedSFX", withExtension: "mp3") {
                 AudioPlayer.playSound(url: soundURL, withID: "possessedSFX")
             }
+            gameState?.isGhostMode = false
             police.removeAllActions()
         }
         
@@ -304,6 +368,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             hero.size = CGSize(width: 32, height: 32)
             hero.texture?.filteringMode = .nearest
         }
+        gameState?.isGhostMode = true
     }
     
     func updatePossessionTimerLabel() {

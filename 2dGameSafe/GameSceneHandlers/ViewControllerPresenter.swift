@@ -21,6 +21,7 @@ enum ViewSwiftUIType {
     case cabinet
     case lockpick
     case picture
+    case endVideo
 }
 
 class ViewControllerPresenter {
@@ -59,7 +60,9 @@ class ViewControllerPresenter {
         case .lockpick:
             swiftUIView = AnyView(CombinationLockView())
         case .picture:
-            swiftUIView = AnyView(AllAxisView())
+            swiftUIView = AnyView(AllAxisView()) 
+        case .endVideo:
+            swiftUIView = AnyView(EndVideoView())
         }
         
         let hostingController = UIHostingController(rootView: swiftUIView)
