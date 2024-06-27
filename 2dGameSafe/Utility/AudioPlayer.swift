@@ -28,20 +28,20 @@ class AudioPlayer: ObservableObject {
                 backgroundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
                 backgroundPlayer?.numberOfLoops = -1 // Loop indefinitely
                 backgroundPlayer?.play()
-                backgroundPlayer?.volume = 2
             } catch {
                 print("Could not find and play the sound file.")
             }
         }
     }
 
-    static func playSound(url: URL, withID id: String, loop: Bool = false) {
+    static func playSound(url: URL, withID id: String, loop: Bool = false, volume: Float = 1.0) {
         guard let audioPlayer = preloadAudioPlayer(url: url) else {
             print("Failed to preload audio player for url:", url)
             return
         }
         
         audioPlayer.numberOfLoops = loop ? -1 : 0
+        audioPlayer.volume = volume
         audioPlayer.play()
         audioPlayers[id] = audioPlayer
     }

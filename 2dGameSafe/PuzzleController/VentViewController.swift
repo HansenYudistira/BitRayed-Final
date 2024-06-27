@@ -1,5 +1,6 @@
 import UIKit
 import SpriteKit
+import AudioToolbox
 
 public class VentViewController: UIViewController, SKPhysicsContactDelegate {
     
@@ -14,9 +15,12 @@ public class VentViewController: UIViewController, SKPhysicsContactDelegate {
     private var numberOfBoltsAffectedByGravity: Int = 0
 
     private var rotationTimer: Timer?
+    private var hapticTimer: Timer?
     
     private var isTapped = false
     let defaults = UserDefaults.standard
+    
+    private let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,12 +153,16 @@ public class VentViewController: UIViewController, SKPhysicsContactDelegate {
 
         switch gesture.state {
         case .began:
-            if let node = scene.atPoint(sceneLocation) as? SKSpriteNode, node.name == "bolt" {
+            if let node = scene.atPoint(sceneLocation) as? SKSpriteNode, node.name == "bolt", let soundURL = Bundle.main.url(forResource: "ScrewdriverSFX", withExtension: "wav") {
                 selectedNode = node
                 startRotationTimer()
+                startHapticTimer()
+                AudioPlayer.playSound(url: soundURL, withID: "ScrewdriverSFX", loop: true, volume: 2.0)
             }
         case .ended, .cancelled:
             stopRotationTimer()
+            stopHapticTimer()
+            AudioPlayer.stopMusic(withID: "ScrewdriverSFX")
             selectedNode = nil
         default:
             break
@@ -168,6 +176,20 @@ public class VentViewController: UIViewController, SKPhysicsContactDelegate {
     private func stopRotationTimer() {
         rotationTimer?.invalidate()
         rotationTimer = nil
+    }
+    
+    private func startHapticTimer() {
+        hapticTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(provideHapticFeedback), userInfo: nil, repeats: true)
+    }
+
+    private func stopHapticTimer() {
+        hapticTimer?.invalidate()
+        hapticTimer = nil
+    }
+    
+    @objc private func provideHapticFeedback() {
+        impactFeedbackGenerator.impactOccurred()
+        impactFeedbackGenerator.prepare()
     }
 
     @objc private func rotateBolt() {

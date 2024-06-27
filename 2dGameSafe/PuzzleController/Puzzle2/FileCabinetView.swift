@@ -48,6 +48,9 @@ struct FileCabinetView: View {
                             if gyroManager.currentFolderIndex == 0 {
                                 print("File's found")
                                 defaults.set(true, forKey: "Puzzle2_done")
+                                if let soundURL = Bundle.main.url(forResource: "DrawerOpenSFX", withExtension: "wav") {
+                                    AudioPlayer.playSound(url: soundURL, withID: "DrawerOpenSFX")
+                                }
                                 defaults.synchronize()
                             }else{
                                 print("Nothing in this file")

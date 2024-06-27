@@ -17,6 +17,7 @@ class WardrobeShakeView: SKScene, ObservableObject, SKPhysicsContactDelegate {
     }
     
     @Published var hasTapped = false
+    let feedback = UIImpactFeedbackGenerator(style: .light)
     
     let keyCategory: UInt32 = 0x1 << 0
     let platformCategory: UInt32 = 0x1 << 1
@@ -140,6 +141,10 @@ class WardrobeShakeView: SKScene, ObservableObject, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         if contact.bodyA.categoryBitMask == keyCategory && contact.bodyB.categoryBitMask == platformCategory ||
             contact.bodyB.categoryBitMask == keyCategory && contact.bodyA.categoryBitMask == platformCategory {
+            if let soundURL = Bundle.main.url(forResource: "KeyDropSFX", withExtension: "wav") {
+                AudioPlayer.playSound(url: soundURL, withID: "KeyDropSFX")
+            }
+            feedback.impactOccurred()
             hasFallen = true
         }
     }

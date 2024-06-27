@@ -61,6 +61,24 @@
 		A72D47D02C2C054A0086E0EB /* NarrativeSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D47C32C2C054A0086E0EB /* NarrativeSceneView.swift */; };
 		A72D47DB2C2C1DC50086E0EB /* MyTileSet 1.sks in Resources */ = {isa = PBXBuildFile; fileRef = A72D47D92C2C1DC50086E0EB /* MyTileSet 1.sks */; };
 		A72D47DC2C2C1DC50086E0EB /* MainScene 2.sks in Resources */ = {isa = PBXBuildFile; fileRef = A72D47DA2C2C1DC50086E0EB /* MainScene 2.sks */; };
+		A72D47EE2C2C5A490086E0EB /* ScrewdriverSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47DE2C2C5A480086E0EB /* ScrewdriverSFX.wav */; };
+		A72D47EF2C2C5A490086E0EB /* SymbolLockSwipedSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47DF2C2C5A480086E0EB /* SymbolLockSwipedSFX.wav */; };
+		A72D47F02C2C5A490086E0EB /* CupboardShakeSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47E02C2C5A480086E0EB /* CupboardShakeSFX.wav */; };
+		A72D47F12C2C5A490086E0EB /* DrawerOpenSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47E12C2C5A480086E0EB /* DrawerOpenSFX.wav */; };
+		A72D47F22C2C5A490086E0EB /* RotateSafeCodeSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47E22C2C5A490086E0EB /* RotateSafeCodeSFX.wav */; };
+		A72D47F32C2C5A490086E0EB /* KeyDropSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47E32C2C5A490086E0EB /* KeyDropSFX.wav */; };
+		A72D47F42C2C5A490086E0EB /* LockPickingPinSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47E42C2C5A490086E0EB /* LockPickingPinSFX.wav */; };
+		A72D47F52C2C5A490086E0EB /* LockPickingPinCorrectSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47E52C2C5A490086E0EB /* LockPickingPinCorrectSFX.wav */; };
+		A72D47F62C2C5A490086E0EB /* SearchFileSFX#1.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47E62C2C5A490086E0EB /* SearchFileSFX#1.wav */; };
+		A72D47F72C2C5A490086E0EB /* ChestOpenSFX#2.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47E72C2C5A490086E0EB /* ChestOpenSFX#2.wav */; };
+		A72D47F82C2C5A490086E0EB /* ChestOpenSFX#1.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47E82C2C5A490086E0EB /* ChestOpenSFX#1.wav */; };
+		A72D47F92C2C5A490086E0EB /* SearchFileSFX#2.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47E92C2C5A490086E0EB /* SearchFileSFX#2.wav */; };
+		A72D47FA2C2C5A490086E0EB /* SymbolLockOpen.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47EA2C2C5A490086E0EB /* SymbolLockOpen.wav */; };
+		A72D47FB2C2C5A490086E0EB /* SafeOpenSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47EB2C2C5A490086E0EB /* SafeOpenSFX.wav */; };
+		A72D47FC2C2C5A490086E0EB /* FilingCabinetOpenSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47EC2C2C5A490086E0EB /* FilingCabinetOpenSFX.wav */; };
+		A72D47FD2C2C5A490086E0EB /* DoorOpenSFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = A72D47ED2C2C5A490086E0EB /* DoorOpenSFX.wav */; };
+		A72D47FF2C2C714B0086E0EB /* possessedSFX.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A72D47FE2C2C714B0086E0EB /* possessedSFX.mp3 */; };
+		A72D48012C2C7F970086E0EB /* walkingSFX.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A72D48002C2C7F970086E0EB /* walkingSFX.mp3 */; };
 		A7C9A43C2C1B382D00F98BB9 /* _dGameSafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9A43B2C1B382D00F98BB9 /* _dGameSafeApp.swift */; };
 		A7C9A43E2C1B382D00F98BB9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9A43D2C1B382D00F98BB9 /* ContentView.swift */; };
 		A7C9A4402C1B382E00F98BB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C9A43F2C1B382E00F98BB9 /* Assets.xcassets */; };
@@ -137,6 +155,24 @@
 		A72D47C32C2C054A0086E0EB /* NarrativeSceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = NarrativeSceneView.swift; sourceTree = "<group>"; };
 		A72D47D92C2C1DC50086E0EB /* MyTileSet 1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "MyTileSet 1.sks"; sourceTree = "<group>"; };
 		A72D47DA2C2C1DC50086E0EB /* MainScene 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "MainScene 2.sks"; sourceTree = "<group>"; };
+		A72D47DE2C2C5A480086E0EB /* ScrewdriverSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ScrewdriverSFX.wav; sourceTree = "<group>"; };
+		A72D47DF2C2C5A480086E0EB /* SymbolLockSwipedSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SymbolLockSwipedSFX.wav; sourceTree = "<group>"; };
+		A72D47E02C2C5A480086E0EB /* CupboardShakeSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CupboardShakeSFX.wav; sourceTree = "<group>"; };
+		A72D47E12C2C5A480086E0EB /* DrawerOpenSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = DrawerOpenSFX.wav; sourceTree = "<group>"; };
+		A72D47E22C2C5A490086E0EB /* RotateSafeCodeSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = RotateSafeCodeSFX.wav; sourceTree = "<group>"; };
+		A72D47E32C2C5A490086E0EB /* KeyDropSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = KeyDropSFX.wav; sourceTree = "<group>"; };
+		A72D47E42C2C5A490086E0EB /* LockPickingPinSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = LockPickingPinSFX.wav; sourceTree = "<group>"; };
+		A72D47E52C2C5A490086E0EB /* LockPickingPinCorrectSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = LockPickingPinCorrectSFX.wav; sourceTree = "<group>"; };
+		A72D47E62C2C5A490086E0EB /* SearchFileSFX#1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "SearchFileSFX#1.wav"; sourceTree = "<group>"; };
+		A72D47E72C2C5A490086E0EB /* ChestOpenSFX#2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "ChestOpenSFX#2.wav"; sourceTree = "<group>"; };
+		A72D47E82C2C5A490086E0EB /* ChestOpenSFX#1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "ChestOpenSFX#1.wav"; sourceTree = "<group>"; };
+		A72D47E92C2C5A490086E0EB /* SearchFileSFX#2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "SearchFileSFX#2.wav"; sourceTree = "<group>"; };
+		A72D47EA2C2C5A490086E0EB /* SymbolLockOpen.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SymbolLockOpen.wav; sourceTree = "<group>"; };
+		A72D47EB2C2C5A490086E0EB /* SafeOpenSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SafeOpenSFX.wav; sourceTree = "<group>"; };
+		A72D47EC2C2C5A490086E0EB /* FilingCabinetOpenSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FilingCabinetOpenSFX.wav; sourceTree = "<group>"; };
+		A72D47ED2C2C5A490086E0EB /* DoorOpenSFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = DoorOpenSFX.wav; sourceTree = "<group>"; };
+		A72D47FE2C2C714B0086E0EB /* possessedSFX.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = possessedSFX.mp3; sourceTree = "<group>"; };
+		A72D48002C2C7F970086E0EB /* walkingSFX.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = walkingSFX.mp3; sourceTree = "<group>"; };
 		A7C9A4382C1B382D00F98BB9 /* 2dGameSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2dGameSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C9A43B2C1B382D00F98BB9 /* _dGameSafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _dGameSafeApp.swift; sourceTree = "<group>"; };
 		A7C9A43D2C1B382D00F98BB9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -216,6 +252,7 @@
 		034893DC2C292CCD005867CC /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				A72D47DD2C2C5A3A0086E0EB /* PuzzleSoundEffect */,
 				A72D479C2C2C04410086E0EB /* BestFriendTalkingSFX.wav */,
 				A72D479D2C2C04410086E0EB /* DoorBellOpenSFX.wav */,
 				A72D47A12C2C04410086E0EB /* FaceSlapSFX.wav */,
@@ -341,6 +378,31 @@
 				A72D47C32C2C054A0086E0EB /* NarrativeSceneView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A72D47DD2C2C5A3A0086E0EB /* PuzzleSoundEffect */ = {
+			isa = PBXGroup;
+			children = (
+				A72D48002C2C7F970086E0EB /* walkingSFX.mp3 */,
+				A72D47FE2C2C714B0086E0EB /* possessedSFX.mp3 */,
+				A72D47E82C2C5A490086E0EB /* ChestOpenSFX#1.wav */,
+				A72D47E72C2C5A490086E0EB /* ChestOpenSFX#2.wav */,
+				A72D47E02C2C5A480086E0EB /* CupboardShakeSFX.wav */,
+				A72D47ED2C2C5A490086E0EB /* DoorOpenSFX.wav */,
+				A72D47E12C2C5A480086E0EB /* DrawerOpenSFX.wav */,
+				A72D47EC2C2C5A490086E0EB /* FilingCabinetOpenSFX.wav */,
+				A72D47E32C2C5A490086E0EB /* KeyDropSFX.wav */,
+				A72D47E52C2C5A490086E0EB /* LockPickingPinCorrectSFX.wav */,
+				A72D47E42C2C5A490086E0EB /* LockPickingPinSFX.wav */,
+				A72D47E22C2C5A490086E0EB /* RotateSafeCodeSFX.wav */,
+				A72D47EB2C2C5A490086E0EB /* SafeOpenSFX.wav */,
+				A72D47DE2C2C5A480086E0EB /* ScrewdriverSFX.wav */,
+				A72D47E62C2C5A490086E0EB /* SearchFileSFX#1.wav */,
+				A72D47E92C2C5A490086E0EB /* SearchFileSFX#2.wav */,
+				A72D47EA2C2C5A490086E0EB /* SymbolLockOpen.wav */,
+				A72D47DF2C2C5A480086E0EB /* SymbolLockSwipedSFX.wav */,
+			);
+			path = PuzzleSoundEffect;
 			sourceTree = "<group>";
 		};
 		A7C9A42F2C1B382C00F98BB9 = {
@@ -475,29 +537,47 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A72D47F82C2C5A490086E0EB /* ChestOpenSFX#1.wav in Resources */,
+				A72D47FA2C2C5A490086E0EB /* SymbolLockOpen.wav in Resources */,
 				A7C9A4BC2C2971AD00F98BB9 /* Rain.sks in Resources */,
+				A72D48012C2C7F970086E0EB /* walkingSFX.mp3 in Resources */,
 				A72D47A72C2C04430086E0EB /* BestFriendTalkingSFX.wav in Resources */,
 				A72D47A62C2C04430086E0EB /* HusbandTalkingSFX.wav in Resources */,
 				A72D47DC2C2C1DC50086E0EB /* MainScene 2.sks in Resources */,
+				A72D47F32C2C5A490086E0EB /* KeyDropSFX.wav in Resources */,
+				A72D47F72C2C5A490086E0EB /* ChestOpenSFX#2.wav in Resources */,
 				A72D47922C2BF1670086E0EB /* dogica.ttf in Resources */,
 				A72D47AC2C2C04430086E0EB /* FaceSlapSFX.wav in Resources */,
 				A72D47AA2C2C04430086E0EB /* NarrativeAmbienceSFX.wav in Resources */,
 				A7C9A4622C2183FB00F98BB9 /* PolyPlane.scn in Resources */,
+				A72D47FB2C2C5A490086E0EB /* SafeOpenSFX.wav in Resources */,
 				A7C9A4432C1B382E00F98BB9 /* Preview Assets.xcassets in Resources */,
+				A72D47F12C2C5A490086E0EB /* DrawerOpenSFX.wav in Resources */,
 				A72D47DB2C2C1DC50086E0EB /* MyTileSet 1.sks in Resources */,
 				034893DD2C292CCD005867CC /* main_music.wav in Resources */,
+				A72D47EE2C2C5A490086E0EB /* ScrewdriverSFX.wav in Resources */,
+				A72D47F62C2C5A490086E0EB /* SearchFileSFX#1.wav in Resources */,
 				A72D47942C2BF1670086E0EB /* dogicapixel.ttf in Resources */,
 				A72D47AE2C2C04430086E0EB /* RestaurantAmbienceSFX.wav in Resources */,
 				A7C9A4612C2183FB00F98BB9 /* Box.scn in Resources */,
+				A72D47FC2C2C5A490086E0EB /* FilingCabinetOpenSFX.wav in Resources */,
 				9A1E9C992C287C4A0079ED3A /* MyTileSet.sks in Resources */,
+				A72D47FD2C2C5A490086E0EB /* DoorOpenSFX.wav in Resources */,
 				A72D47952C2BF1670086E0EB /* dogicapixelbold.ttf in Resources */,
+				A72D47FF2C2C714B0086E0EB /* possessedSFX.mp3 in Resources */,
+				A72D47EF2C2C5A490086E0EB /* SymbolLockSwipedSFX.wav in Resources */,
 				A72D47AB2C2C04430086E0EB /* WifeTalkingSFX.wav in Resources */,
+				A72D47F52C2C5A490086E0EB /* LockPickingPinCorrectSFX.wav in Resources */,
 				A72D47AF2C2C04430086E0EB /* HouseAmbienceSFX.wav in Resources */,
+				A72D47F22C2C5A490086E0EB /* RotateSafeCodeSFX.wav in Resources */,
+				A72D47F42C2C5A490086E0EB /* LockPickingPinSFX.wav in Resources */,
 				A72D47AD2C2C04430086E0EB /* NarrativeTalkingSFX.wav in Resources */,
 				A72D47A92C2C04430086E0EB /* KnifeStabSFX.wav in Resources */,
 				A72D47932C2BF1670086E0EB /* dogicabold.ttf in Resources */,
 				A7C9A4BB2C2971AD00F98BB9 /* Assets.xcassets in Resources */,
+				A72D47F92C2C5A490086E0EB /* SearchFileSFX#2.wav in Resources */,
 				A7C9A4402C1B382E00F98BB9 /* Assets.xcassets in Resources */,
+				A72D47F02C2C5A490086E0EB /* CupboardShakeSFX.wav in Resources */,
 				A72D47B02C2C04430086E0EB /* Music1.wav in Resources */,
 				A72D47A82C2C04430086E0EB /* DoorBellOpenSFX.wav in Resources */,
 			);

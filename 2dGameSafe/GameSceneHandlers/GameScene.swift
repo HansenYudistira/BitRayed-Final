@@ -24,6 +24,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var policeDownFrames: [SKTexture] = []
     var policeLeftFrames: [SKTexture] = []
     var policeUpFrames: [SKTexture] = []
+    var protagonisRightFrames: [SKTexture] = []
+    var protagonisDownFrames: [SKTexture] = []
+    var protagonisLeftFrames: [SKTexture] = []
+    var protagonisUpFrames: [SKTexture] = []
     
     var currentAnimationDirection: AnimationDirection = .none
     
@@ -37,10 +41,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var actionButton = false
     var possesButton = false
     var isPossessed = false
+    var possessionTimeRemaining: Int = 60
     var cameraNode = SKCameraNode()
     var warningSign: SKSpriteNode!
     var heroNode: SKSpriteNode!
     var possessionTimer: Timer?
+    var possessionTimerLabel: SKLabelNode!
     
     var gameState: GameState?
 
@@ -198,9 +204,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             movementDirection = .down
         }
         
-        if isPossessed {
-            updateHeroAnimation(direction: movementDirection)
-        }
+        updateHeroAnimation(direction: movementDirection)
         
         if actionButton {
             if let gameState = gameState {
@@ -222,6 +226,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 } else if gameState.cabinetTapable {
                     if(defaults.bool(forKey: "Puzzle1_done")){
                         viewControllerPresenter.presentSwiftUI(viewSwiftUIType: .cabinet)
+                        if let soundURL = Bundle.main.url(forResource: "FilingCabinetOpenSFX", withExtension: "wav") {
+                            AudioPlayer.playSound(url: soundURL, withID: "FilingCabinetOpenSFX")
+                        }
                     }else{
                         print("")
                     }
@@ -248,32 +255,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cameraNode.position = hero.position
     }
     
-    func updateHeroAnimation(direction: AnimationDirection) {
-        if direction != currentAnimationDirection {
-            hero.removeAction(forKey: "heroAnimation")
-
-            switch direction {
-            case .up:
-                hero.run(animatePoliceUp(), withKey: "heroAnimation")
-            case .down:
-                hero.run(animatePoliceDown(), withKey: "heroAnimation")
-            case .left:
-                hero.run(animatePoliceLeft(), withKey: "heroAnimation")
-            case .right:
-                hero.run(animatePoliceRight(), withKey: "heroAnimation")
-            case .none:
-                break
-            }
-
-            currentAnimationDirection = direction
-        }
-    }
-    
     func handleContactBetweenHeroAndPolice() {
         isPossessed = true
         if isPossessed {
             police.position = CGPoint(x: -1000.0, y: -1000.0)
             startPossessionTimer()
+            if let soundURL = Bundle.main.url(forResource: "possessedSFX", withExtension: "mp3") {
+                AudioPlayer.playSound(url: soundURL, withID: "possessedSFX")
+            }
             police.removeAllActions()
         }
         
@@ -286,13 +275,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func startPossessionTimer() {
         possessionTimer?.invalidate()
-        possessionTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(endPossession), userInfo: nil, repeats: false)
+        possessionTimeRemaining = 60
+        possessionTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updatePossessionTimer), userInfo: nil, repeats: true)
+        
+        possessionTimerLabel.isHidden = false
+        updatePossessionTimerLabel()
+    }
+    
+    @objc func updatePossessionTimer() {
+        possessionTimeRemaining -= 1
+        updatePossessionTimerLabel()
+        
+        if possessionTimeRemaining <= 0 {
+            possessionTimer?.invalidate()
+            endPossession()
+        }
     }
     
     @objc func endPossession() {
         isPossessed = false
         police.position = CGPoint(x: -400, y: -350)
         addPoliceMovement()
+        possessionTimerLabel.isHidden = true
         if let hero = self.childNode(withName: "character") as? SKSpriteNode {
             hero.removeAction(forKey: "heroAnimation")
             hero.texture = SKTexture(imageNamed: "protagonis")
@@ -300,6 +304,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             hero.size = CGSize(width: 32, height: 32)
             hero.texture?.filteringMode = .nearest
         }
+    }
+    
+    func updatePossessionTimerLabel() {
+        possessionTimerLabel.text = "Possession Time: \(possessionTimeRemaining)s"
     }
     
     public func didBegin(_ contact: SKPhysicsContact) {

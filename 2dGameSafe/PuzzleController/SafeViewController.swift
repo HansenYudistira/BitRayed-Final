@@ -1,5 +1,6 @@
 import UIKit
 import SpriteKit
+import AVFoundation
 
 public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
     
@@ -7,11 +8,13 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
     private var sceneView = SKView()
     private var screenSize: CGSize!
     
+    private var audioPlayer: AVAudioPlayer!
+    
     var selectedNode: SKSpriteNode!
     var initialRotation: CGFloat = 0.0
     
     private var isTapped = false
-    
+    private var passwordProgressLabel: SKLabelNode!
     let password = [1, 0, 2]
     var enteredPassword: [Int] = []
     var passwordCount = 0
@@ -26,6 +29,7 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         super.viewDidLoad()
         setupScreenSize()
         setup()
+        setupAudio()
         addControlButtons()
 //        addRotateGestureRecognizer()
         addTapGestureRecognizer()
@@ -60,6 +64,16 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         safeNode.name = "safe"
         safeNode.texture?.filteringMode = .nearest
         scene.addChild(safeNode)
+        
+        passwordProgressLabel = SKLabelNode(fontNamed: "dogica")
+        passwordProgressLabel.fontSize = 24
+        passwordProgressLabel.fontColor = .white
+        passwordProgressLabel.position = CGPoint(x: scene.size.width / 2, y: scene.size.height - 40)
+        passwordProgressLabel.zPosition = 100
+        passwordProgressLabel.horizontalAlignmentMode = .center
+        passwordProgressLabel.verticalAlignmentMode = .top
+        passwordProgressLabel.text = "Entered: \(enteredPassword)"
+        scene.addChild(passwordProgressLabel)
         
         let lockNode = SKSpriteNode(imageNamed: "safeDial")
         lockNode.size = CGSize(width: 300, height: 300)
@@ -106,6 +120,13 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
 
         sceneView.presentScene(scene)
         addCloseButton()
+    }
+    
+    func setupAudio() {
+        if let soundURL = Bundle.main.url(forResource: "RotateSafeCodeSFX", withExtension: "wav") {
+            audioPlayer = AudioPlayer.preloadAudioPlayer(url: soundURL)
+        }
+        audioPlayer.prepareToPlay()
     }
     
     private func addCloseButton() {
@@ -160,10 +181,8 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
     }
 
     private func animateDocument(_ documentNode: SKSpriteNode) {
-        let scaleAction = SKAction.scale(by: 2, duration: 1)
-        let reverseAction = scaleAction.reversed()
-        let sequence = SKAction.sequence([scaleAction, reverseAction])
-        documentNode.run(sequence)
+        let scaleAction = SKAction.scale(by: 1.5, duration: 1)
+        documentNode.run(scaleAction)
     }
     
 //    private func addRotateGestureRecognizer() {
@@ -233,11 +252,25 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
         print("currentNumber = \(currentNumber)")
 
         enteredPassword.append(currentNumber)
+        passwordProgressLabel.text = "Entered: \(enteredPassword)"
+        
+        if enteredPassword.count <= password.count && enteredPassword[enteredPassword.count - 1] == password[enteredPassword.count - 1] {
+            passwordProgressLabel.text = "You have entered \(enteredPassword.count) correct password\(enteredPassword.count > 1 ? "s" : "")!"
+        } else {
+            passwordProgressLabel.text = "Password incorrect!"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
+                enteredPassword.removeAll()
+                passwordProgressLabel.text = "Entered: \(enteredPassword)"
+            }
+        }
         
         if enteredPassword.count == password.count {
             if enteredPassword == password {
-                print("Password correct!")
+                passwordProgressLabel.text = "Password correct!"
                 makeSafeOpen()
+                if let soundURL = Bundle.main.url(forResource: "SafeOpenSFX", withExtension: "wav") {
+                    AudioPlayer.playSound(url: soundURL, withID: "SafeOpenSFX")
+                }
                 defaults.set(true, forKey: "Puzzle4_done")
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
@@ -252,10 +285,6 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
                         self.returnToGameViewController()
                     }
                 }
-                
-            } else {
-                print("Password incorrect!")
-                enteredPassword.removeAll()
             }
         }
     }
@@ -307,6 +336,7 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
             rotateLockNode(by: -.pi / 5.0)
             passwordCount -= 1
             rotateRight = false
+            audioPlayer.play()
         }
     }
     
@@ -315,6 +345,7 @@ public class SafeViewController: UIViewController, SKPhysicsContactDelegate {
             rotateLockNode(by: .pi / 5.0)
             passwordCount += 1
             rotateLeft = false
+            audioPlayer.play()
         }
     }
     

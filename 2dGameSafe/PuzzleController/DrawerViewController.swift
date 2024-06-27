@@ -11,6 +11,7 @@ public class DrawerViewController: UIViewController, SKPhysicsContactDelegate {
     
     private var isTapped = false
     let defaults = UserDefaults.standard
+    private let audioPlayer = AudioPlayer()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,6 +117,10 @@ public class DrawerViewController: UIViewController, SKPhysicsContactDelegate {
         screwNode.zRotation = .pi / 5
         sceneView.presentScene(scene)
         addCloseButton()
+        
+        if let soundURL = Bundle.main.url(forResource: "DrawerOpenSFX", withExtension: "wav") {
+            AudioPlayer.playSound(url: soundURL, withID: "DrawerOpenSFX")
+        }
     }
     
     private func addCloseButton() {

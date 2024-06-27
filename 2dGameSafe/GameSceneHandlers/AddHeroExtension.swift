@@ -20,6 +20,11 @@ extension GameScene {
         hero.texture?.filteringMode = .nearest
         hero.alpha = 0.5
         hero.name = "character"
+        
+        protagonisRightFrames = loadFrames(fromAtlas: "protagonis_right", frameCount: 8)
+        protagonisDownFrames = loadFrames(fromAtlas: "protagonis_down", frameCount: 8)
+        protagonisLeftFrames = loadFrames(fromAtlas: "protagonis_left", frameCount: 8)
+        protagonisUpFrames = loadFrames(fromAtlas: "protagonis_up", frameCount: 8)
         actionSign = SKSpriteNode(imageNamed: "actionSign")
         actionSign.size = CGSize(width: 5, height: 15)
         actionSign.zPosition = 50
@@ -27,6 +32,16 @@ extension GameScene {
         actionSign.isHidden = true
         actionSign.name = "actionSign"
         hero.addChild(actionSign)
+        
+        possessionTimerLabel = SKLabelNode(fontNamed: "Arial")
+        possessionTimerLabel.fontSize = 24
+        possessionTimerLabel.fontColor = .white
+        possessionTimerLabel.horizontalAlignmentMode = .left
+        possessionTimerLabel.verticalAlignmentMode = .top
+        possessionTimerLabel.position = CGPoint(x: -self.size.width / 2 + 10, y: self.size.height / 2 - 10)
+        possessionTimerLabel.zPosition = 100
+        possessionTimerLabel.isHidden = true
+        cameraNode.addChild(possessionTimerLabel)
     }
     
     func addPolice() {
@@ -51,6 +66,66 @@ extension GameScene {
         }
         
         return frames
+    }
+    
+    func updateHeroAnimation(direction: AnimationDirection) {
+        if direction != currentAnimationDirection {
+            hero.removeAction(forKey: "heroAnimation")
+            
+            let animationAction: SKAction
+            
+            if isPossessed {
+                switch direction {
+                case .up:
+                    animationAction = animatePoliceUp()
+                case .down:
+                    animationAction = animatePoliceDown()
+                case .left:
+                    animationAction = animatePoliceLeft()
+                case .right:
+                    animationAction = animatePoliceRight()
+                case .none:
+                    return
+                }
+            } else {
+                switch direction {
+                case .up:
+                    animationAction = animateProtagonisUp()
+                case .down:
+                    animationAction = animateProtagonisDown()
+                case .left:
+                    animationAction = animateProtagonisLeft()
+                case .right:
+                    animationAction = animateProtagonisRight()
+                case .none:
+                    return
+                }
+            }
+            
+            hero.run(animationAction, withKey: "heroAnimation")
+            currentAnimationDirection = direction
+        }
+    }
+    
+    func animateProtagonisRight() -> SKAction {
+        let animation = SKAction.animate(with: protagonisRightFrames, timePerFrame: 0.2, resize: false, restore: false)
+        
+        return SKAction.repeatForever(animation)
+    }
+
+    func animateProtagonisDown() -> SKAction {
+        let animation = SKAction.animate(with: protagonisDownFrames, timePerFrame: 0.2, resize: false, restore: false)
+        return SKAction.repeatForever(animation)
+    }
+
+    func animateProtagonisLeft() -> SKAction {
+        let animation = SKAction.animate(with: protagonisLeftFrames, timePerFrame: 0.2, resize: false, restore: false)
+        return SKAction.repeatForever(animation)
+    }
+
+    func animateProtagonisUp() -> SKAction {
+        let animation = SKAction.animate(with: protagonisUpFrames, timePerFrame: 0.2, resize: false, restore: false)
+        return SKAction.repeatForever(animation)
     }
     
     func animatePoliceRight() -> SKAction {

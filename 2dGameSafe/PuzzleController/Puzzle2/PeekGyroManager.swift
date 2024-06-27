@@ -7,17 +7,24 @@
 
 import SwiftUI
 import CoreMotion
+import AVFAudio
 
 class PeekGyroManager: ObservableObject {
     private var motionManager: CMMotionManager
     @Published var currentFolderIndex: Int = 4
     private var initialRoll: Double?
     private var inChangedState: Bool = false
+    private let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+    private let audioPlayer: AVAudioPlayer?
     
     init() {
         self.motionManager = CMMotionManager()
         self.motionManager.deviceMotionUpdateInterval = 0.3
-        
+        if let soundURL = Bundle.main.url(forResource: "SearchFileSFX#1", withExtension: "wav") {
+            audioPlayer = AudioPlayer.preloadAudioPlayer(url: soundURL)
+        } else {
+            audioPlayer = nil
+        }
         if self.motionManager.isDeviceMotionAvailable {
             self.motionManager.startDeviceMotionUpdates(to: .main) { [weak self] (data, error) in
                 guard let self = self else { return }
@@ -26,6 +33,8 @@ class PeekGyroManager: ObservableObject {
                 }
             }
         }
+        
+        feedbackGenerator.prepare()
     }
     
     private func checkRollChange(_ currentRoll: Double) {
@@ -43,6 +52,10 @@ class PeekGyroManager: ObservableObject {
             if folderIndexChange != 0 {
                 self.currentFolderIndex = max(0, min(4, self.currentFolderIndex - folderIndexChange))
                 inChangedState = true
+                
+                audioPlayer?.play()
+                feedbackGenerator.impactOccurred()
+                feedbackGenerator.prepare()
             } else {
                 inChangedState = false
             }

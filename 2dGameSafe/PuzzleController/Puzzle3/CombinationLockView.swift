@@ -74,10 +74,9 @@ struct CombinationLockView: View {
             .zIndex(4)
         }
         .ignoresSafeArea()
+        
     }
 }
-
-
 
 struct CodeScrollView: View{
     let images: [String]
@@ -98,11 +97,13 @@ struct CodeScrollView: View{
         .scrollPosition(id: $scrolledID)
         .frame(width: 250, height: 445)
         .padding(.bottom, 50)
+        .onChange(of: scrolledID) { oldValue, newValue in
+            if let soundURL = Bundle.main.url(forResource: "SymbolLockSwipedSFX", withExtension: "wav") {
+                AudioPlayer.playSound(url: soundURL, withID: "SymbolLockSwipedSFX")
+            }
+        }
     }
 }
-
-
-
 
 #Preview {
     CombinationLockView()
