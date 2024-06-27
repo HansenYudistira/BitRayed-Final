@@ -19,11 +19,9 @@ struct EndVideoView: View {
                     self.navigateToMainView = true
                 }
                 .ignoresSafeArea()
-                
-                // NavigationLink to the main view, triggered by state change
-                NavigationLink(destination: StartView(), isActive: $navigateToMainView) {
-                    
-                }
+            }
+            .navigationDestination(isPresented: $navigateToMainView){
+                StartView()
             }
             .navigationBarHidden(true)
         }
